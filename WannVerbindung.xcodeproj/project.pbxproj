@@ -16,6 +16,13 @@
 		BE206A2C28F96D8600568190 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE206A2B28F96D8600568190 /* ContentView.swift */; };
 		BE206A2E28F96D8700568190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE206A2D28F96D8700568190 /* Assets.xcassets */; };
 		BE206A3128F96D8700568190 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE206A3028F96D8700568190 /* Preview Assets.xcassets */; };
+		BE5A730928F97AB700F11CF7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5A72F028F97A6200F11CF7 /* WidgetKit.framework */; };
+		BE5A730A28F97AB700F11CF7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5A72F228F97A6200F11CF7 /* SwiftUI.framework */; };
+		BE5A730D28F97AB700F11CF7 /* NextDepartureWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A730C28F97AB700F11CF7 /* NextDepartureWidget.swift */; };
+		BE5A731028F97AB700F11CF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE5A730F28F97AB700F11CF7 /* Assets.xcassets */; };
+		BE5A731228F97AB700F11CF7 /* NextDepartureWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BE5A730E28F97AB700F11CF7 /* NextDepartureWidget.intentdefinition */; };
+		BE5A731328F97AB700F11CF7 /* NextDepartureWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BE5A730E28F97AB700F11CF7 /* NextDepartureWidget.intentdefinition */; };
+		BE5A731628F97AB800F11CF7 /* NextDepartureWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BE5A730828F97AB700F11CF7 /* NextDepartureWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +32,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = BE206A2328F96D8600568190;
 			remoteInfo = "WannVerbindung Watch App";
+		};
+		BE5A731428F97AB700F11CF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE206A0C28F96D8500568190 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE5A730728F97AB700F11CF7;
+			remoteInfo = NextDepartureWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -40,6 +54,27 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE206A4E28F974D400568190 /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE5A730328F97A6200F11CF7 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BE5A731628F97AB800F11CF7 /* NextDepartureWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +88,13 @@
 		BE206A2B28F96D8600568190 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BE206A2D28F96D8700568190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE206A3028F96D8700568190 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BE5A72F028F97A6200F11CF7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		BE5A72F228F97A6200F11CF7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		BE5A730828F97AB700F11CF7 /* NextDepartureWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NextDepartureWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE5A730C28F97AB700F11CF7 /* NextDepartureWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextDepartureWidget.swift; sourceTree = "<group>"; };
+		BE5A730E28F97AB700F11CF7 /* NextDepartureWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = NextDepartureWidget.intentdefinition; sourceTree = "<group>"; };
+		BE5A730F28F97AB700F11CF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE5A731128F97AB700F11CF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +112,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE5A730528F97AB700F11CF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE5A730A28F97AB700F11CF7 /* SwiftUI.framework in Frameworks */,
+				BE5A730928F97AB700F11CF7 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +129,8 @@
 			children = (
 				BE206A1628F96D8500568190 /* WannVerbindung */,
 				BE206A2828F96D8600568190 /* WannVerbindung Watch App */,
+				BE5A730B28F97AB700F11CF7 /* NextDepartureWidget */,
+				BE5A72EF28F97A6200F11CF7 /* Frameworks */,
 				BE206A1528F96D8500568190 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +140,7 @@
 			children = (
 				BE206A1428F96D8500568190 /* WannVerbindung.app */,
 				BE206A2428F96D8600568190 /* WannVerbindung Watch App.app */,
+				BE5A730828F97AB700F11CF7 /* NextDepartureWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +183,26 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		BE5A72EF28F97A6200F11CF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE5A72F028F97A6200F11CF7 /* WidgetKit.framework */,
+				BE5A72F228F97A6200F11CF7 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE5A730B28F97AB700F11CF7 /* NextDepartureWidget */ = {
+			isa = PBXGroup;
+			children = (
+				BE5A730C28F97AB700F11CF7 /* NextDepartureWidget.swift */,
+				BE5A730E28F97AB700F11CF7 /* NextDepartureWidget.intentdefinition */,
+				BE5A730F28F97AB700F11CF7 /* Assets.xcassets */,
+				BE5A731128F97AB700F11CF7 /* Info.plist */,
+			);
+			path = NextDepartureWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,15 +232,35 @@
 				BE206A2028F96D8600568190 /* Sources */,
 				BE206A2128F96D8600568190 /* Frameworks */,
 				BE206A2228F96D8600568190 /* Resources */,
+				BE206A4E28F974D400568190 /* Embed ExtensionKit Extensions */,
+				BE5A730328F97A6200F11CF7 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BE5A731528F97AB700F11CF7 /* PBXTargetDependency */,
 			);
 			name = "WannVerbindung Watch App";
 			productName = "WannVerbindung Watch App";
 			productReference = BE206A2428F96D8600568190 /* WannVerbindung Watch App.app */;
 			productType = "com.apple.product-type.application";
+		};
+		BE5A730728F97AB700F11CF7 /* NextDepartureWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE5A731728F97AB800F11CF7 /* Build configuration list for PBXNativeTarget "NextDepartureWidgetExtension" */;
+			buildPhases = (
+				BE5A730428F97AB700F11CF7 /* Sources */,
+				BE5A730528F97AB700F11CF7 /* Frameworks */,
+				BE5A730628F97AB700F11CF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NextDepartureWidgetExtension;
+			productName = NextDepartureWidgetExtension;
+			productReference = BE5A730828F97AB700F11CF7 /* NextDepartureWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -182,6 +276,9 @@
 						CreatedOnToolsVersion = 14.1;
 					};
 					BE206A2328F96D8600568190 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					BE5A730728F97AB700F11CF7 = {
 						CreatedOnToolsVersion = 14.1;
 					};
 				};
@@ -201,6 +298,7 @@
 			targets = (
 				BE206A1328F96D8500568190 /* WannVerbindung */,
 				BE206A2328F96D8600568190 /* WannVerbindung Watch App */,
+				BE5A730728F97AB700F11CF7 /* NextDepartureWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -224,6 +322,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE5A730628F97AB700F11CF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE5A731028F97AB700F11CF7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -241,7 +347,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE206A2C28F96D8600568190 /* ContentView.swift in Sources */,
+				BE5A731328F97AB700F11CF7 /* NextDepartureWidget.intentdefinition in Sources */,
 				BE206A2A28F96D8600568190 /* WannVerbindungApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE5A730428F97AB700F11CF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE5A731228F97AB700F11CF7 /* NextDepartureWidget.intentdefinition in Sources */,
+				BE5A730D28F97AB700F11CF7 /* NextDepartureWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +368,11 @@
 			isa = PBXTargetDependency;
 			target = BE206A2328F96D8600568190 /* WannVerbindung Watch App */;
 			targetProxy = BE206A2628F96D8600568190 /* PBXContainerItemProxy */;
+		};
+		BE5A731528F97AB700F11CF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE5A730728F97AB700F11CF7 /* NextDepartureWidgetExtension */;
+			targetProxy = BE5A731428F97AB700F11CF7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -368,6 +489,7 @@
 		BE206A3528F96D8700568190 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -379,6 +501,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = WannVerbindung;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.rhein.WannVerbindung;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,6 +521,7 @@
 		BE206A3628F96D8700568190 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -409,6 +533,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = WannVerbindung;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.rhein.WannVerbindung;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -493,6 +618,67 @@
 			};
 			name = Release;
 		};
+		BE5A731828F97AB800F11CF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 63NZMDFF7Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NextDepartureWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NextDepartureWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.rhein.WannVerbindung.watchkitapp.NextDepartureWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		BE5A731928F97AB800F11CF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 63NZMDFF7Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NextDepartureWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NextDepartureWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.rhein.WannVerbindung.watchkitapp.NextDepartureWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -519,6 +705,15 @@
 			buildConfigurations = (
 				BE206A3928F96D8700568190 /* Debug */,
 				BE206A3A28F96D8700568190 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE5A731728F97AB800F11CF7 /* Build configuration list for PBXNativeTarget "NextDepartureWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE5A731828F97AB800F11CF7 /* Debug */,
+				BE5A731928F97AB800F11CF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
