@@ -11,32 +11,26 @@ import Intents
 import WannVerbindungServices
 
 struct Provider: IntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
+    func placeholder(in context: Context) -> NextDepartureEntry {
+        NextDepartureEntry(date: Date(), configuration: ConfigurationIntent())
     }
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
+    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (NextDepartureEntry) -> ()) {
+        let entry = NextDepartureEntry(date: Date(), configuration: configuration)
         completion(entry)
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
+        let entry = NextDepartureEntry(date: currentDate, configuration: configuration)
+        let nextTimelineDate = Calendar.current.date(byAdding: .minute, value: 1, to: currentDate)!
+        let timeline = Timeline(entries: [entry], policy: .after(nextTimelineDate))
 
-        let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
 }
 
-struct SimpleEntry: TimelineEntry {
+struct NextDepartureEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationIntent
 }
@@ -64,7 +58,7 @@ struct NextDepartureIPhoneWidget: Widget {
 
 struct NextDepartureIPhoneWidget_Previews: PreviewProvider {
     static var previews: some View {
-        NextDepartureIPhoneWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+        NextDepartureIPhoneWidgetEntryView(entry: NextDepartureEntry(date: Date(), configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }

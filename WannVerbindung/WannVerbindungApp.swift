@@ -12,7 +12,7 @@ import WannVerbindungServices
 struct WannVerbindungApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ConnectionSettingsView()
         }
     }
 }

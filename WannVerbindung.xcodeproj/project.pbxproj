@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE206A1828F96D8500568190 /* WannVerbindungApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE206A1728F96D8500568190 /* WannVerbindungApp.swift */; };
-		BE206A1A28F96D8500568190 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE206A1928F96D8500568190 /* ContentView.swift */; };
+		BE206A1A28F96D8500568190 /* ConnectionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE206A1928F96D8500568190 /* ConnectionSettingsView.swift */; };
 		BE206A1C28F96D8600568190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE206A1B28F96D8600568190 /* Assets.xcassets */; };
 		BE206A1F28F96D8600568190 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE206A1E28F96D8600568190 /* Preview Assets.xcassets */; };
 		BE206A2528F96D8600568190 /* WannVerbindung Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BE206A2428F96D8600568190 /* WannVerbindung Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -35,6 +35,11 @@
 		BE5A739C28F9C1A000F11CF7 /* TransportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A737428F9AA3400F11CF7 /* TransportService.swift */; };
 		BE5A739D28F9C35200F11CF7 /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A737C28F9B19C00F11CF7 /* Journey.swift */; };
 		BE5A739E28F9C35500F11CF7 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A738228F9B6D900F11CF7 /* Stop.swift */; };
+		BE7727A928F9CAE2003F89AE /* WannVerbindungServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5A739528F9C19500F11CF7 /* WannVerbindungServices.framework */; };
+		BE7727AA28F9CAE2003F89AE /* WannVerbindungServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE5A739528F9C19500F11CF7 /* WannVerbindungServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE7727AE28F9CAED003F89AE /* WannVerbindungServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5A739528F9C19500F11CF7 /* WannVerbindungServices.framework */; };
+		BE7727AF28F9CAED003F89AE /* WannVerbindungServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE5A739528F9C19500F11CF7 /* WannVerbindungServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE7727B428F9D08E003F89AE /* ConnectionSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727B328F9D08E003F89AE /* ConnectionSettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = BE5A735028F9A80A00F11CF7;
 			remoteInfo = NextDepartureWatchWidgetExtension;
+		};
+		BE7727AB28F9CAE2003F89AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE206A0C28F96D8500568190 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE5A739428F9C19500F11CF7;
+			remoteInfo = WannVerbindungServices;
+		};
+		BE7727B028F9CAED003F89AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE206A0C28F96D8500568190 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE5A739428F9C19500F11CF7;
+			remoteInfo = WannVerbindungServices;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -105,12 +124,34 @@
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE7727AD28F9CAE2003F89AE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BE7727AA28F9CAE2003F89AE /* WannVerbindungServices.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE7727B228F9CAED003F89AE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BE7727AF28F9CAED003F89AE /* WannVerbindungServices.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BE206A1428F96D8500568190 /* WannVerbindung.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WannVerbindung.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE206A1728F96D8500568190 /* WannVerbindungApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WannVerbindungApp.swift; sourceTree = "<group>"; };
-		BE206A1928F96D8500568190 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BE206A1928F96D8500568190 /* ConnectionSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSettingsView.swift; sourceTree = "<group>"; };
 		BE206A1B28F96D8600568190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE206A1E28F96D8600568190 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BE206A2428F96D8600568190 /* WannVerbindung Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WannVerbindung Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +181,7 @@
 		BE5A739F28F9C3D500F11CF7 /* WannVerbindung Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WannVerbindung Watch App.entitlements"; sourceTree = "<group>"; };
 		BE5A73A028F9C3DD00F11CF7 /* NextDepartureIPhoneWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NextDepartureIPhoneWidgetExtension.entitlements; sourceTree = "<group>"; };
 		BE5A73A128F9C3F500F11CF7 /* NextDepartureWatchWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NextDepartureWatchWidgetExtension.entitlements; sourceTree = "<group>"; };
+		BE7727B328F9D08E003F89AE /* ConnectionSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7727A928F9CAE2003F89AE /* WannVerbindungServices.framework in Frameworks */,
 				BE5A733B28F9A0FF00F11CF7 /* SwiftUI.framework in Frameworks */,
 				BE5A733A28F9A0FF00F11CF7 /* WidgetKit.framework in Frameworks */,
 			);
@@ -170,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7727AE28F9CAED003F89AE /* WannVerbindungServices.framework in Frameworks */,
 				BE5A735328F9A80A00F11CF7 /* SwiftUI.framework in Frameworks */,
 				BE5A735228F9A80A00F11CF7 /* WidgetKit.framework in Frameworks */,
 			);
@@ -217,7 +261,8 @@
 			children = (
 				BE5A738F28F9C0E700F11CF7 /* WannVerbindung.entitlements */,
 				BE206A1728F96D8500568190 /* WannVerbindungApp.swift */,
-				BE206A1928F96D8500568190 /* ContentView.swift */,
+				BE206A1928F96D8500568190 /* ConnectionSettingsView.swift */,
+				BE7727B328F9D08E003F89AE /* ConnectionSettingsViewModel.swift */,
 				BE206A1B28F96D8600568190 /* Assets.xcassets */,
 				BE206A1D28F96D8600568190 /* Preview Content */,
 			);
@@ -365,10 +410,12 @@
 				BE5A733528F9A0FF00F11CF7 /* Sources */,
 				BE5A733628F9A0FF00F11CF7 /* Frameworks */,
 				BE5A733728F9A0FF00F11CF7 /* Resources */,
+				BE7727AD28F9CAE2003F89AE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BE7727AC28F9CAE2003F89AE /* PBXTargetDependency */,
 			);
 			name = NextDepartureIPhoneWidgetExtension;
 			productName = NextDepartureIPhoneWidgetExtension;
@@ -382,10 +429,12 @@
 				BE5A734D28F9A80A00F11CF7 /* Sources */,
 				BE5A734E28F9A80A00F11CF7 /* Frameworks */,
 				BE5A734F28F9A80A00F11CF7 /* Resources */,
+				BE7727B228F9CAED003F89AE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BE7727B128F9CAED003F89AE /* PBXTargetDependency */,
 			);
 			name = NextDepartureWatchWidgetExtension;
 			productName = NextDepartureWatchWidgetExtension;
@@ -508,9 +557,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE206A1A28F96D8500568190 /* ContentView.swift in Sources */,
+				BE206A1A28F96D8500568190 /* ConnectionSettingsView.swift in Sources */,
 				BE206A1828F96D8500568190 /* WannVerbindungApp.swift in Sources */,
 				BE5A734628F9A10000F11CF7 /* NextDepartureIPhoneWidget.intentdefinition in Sources */,
+				BE7727B428F9D08E003F89AE /* ConnectionSettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +620,16 @@
 			isa = PBXTargetDependency;
 			target = BE5A735028F9A80A00F11CF7 /* NextDepartureWatchWidgetExtension */;
 			targetProxy = BE5A735D28F9A80B00F11CF7 /* PBXContainerItemProxy */;
+		};
+		BE7727AC28F9CAE2003F89AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE5A739428F9C19500F11CF7 /* WannVerbindungServices */;
+			targetProxy = BE7727AB28F9CAE2003F89AE /* PBXContainerItemProxy */;
+		};
+		BE7727B128F9CAED003F89AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE5A739428F9C19500F11CF7 /* WannVerbindungServices */;
+			targetProxy = BE7727B028F9CAED003F89AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
