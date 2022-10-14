@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TransportRestService
 
 @main
 struct WannVerbindung_Watch_AppApp: App {

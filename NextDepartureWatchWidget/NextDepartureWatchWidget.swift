@@ -8,6 +8,7 @@
 import WidgetKit
 import SwiftUI
 import Intents
+import TransportRestService
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
