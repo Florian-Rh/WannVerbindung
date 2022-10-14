@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE206A1828F96D8500568190 /* WannVerbindungApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE206A1728F96D8500568190 /* WannVerbindungApp.swift */; };
+		BE206A1A28F96D8500568190 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE206A1928F96D8500568190 /* ContentView.swift */; };
+		BE206A1C28F96D8600568190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE206A1B28F96D8600568190 /* Assets.xcassets */; };
+		BE206A1F28F96D8600568190 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE206A1E28F96D8600568190 /* Preview Assets.xcassets */; };
+		BE206A2528F96D8600568190 /* WannVerbindung Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BE206A2428F96D8600568190 /* WannVerbindung Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BE206A2A28F96D8600568190 /* WannVerbindungApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE206A2928F96D8600568190 /* WannVerbindungApp.swift */; };
+		BE206A2C28F96D8600568190 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE206A2B28F96D8600568190 /* ContentView.swift */; };
+		BE206A2E28F96D8700568190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE206A2D28F96D8700568190 /* Assets.xcassets */; };
+		BE206A3128F96D8700568190 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE206A3028F96D8700568190 /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE206A2628F96D8600568190 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE206A0C28F96D8500568190 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE206A2328F96D8600568190;
+			remoteInfo = "WannVerbindung Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BE206A3728F96D8700568190 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				BE206A2528F96D8600568190 /* WannVerbindung Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BE206A1428F96D8500568190 /* WannVerbindung.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WannVerbindung.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE206A1728F96D8500568190 /* WannVerbindungApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WannVerbindungApp.swift; sourceTree = "<group>"; };
+		BE206A1928F96D8500568190 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BE206A1B28F96D8600568190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE206A1E28F96D8600568190 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BE206A2428F96D8600568190 /* WannVerbindung Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WannVerbindung Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE206A2928F96D8600568190 /* WannVerbindungApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WannVerbindungApp.swift; sourceTree = "<group>"; };
+		BE206A2B28F96D8600568190 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BE206A2D28F96D8700568190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE206A3028F96D8700568190 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE206A1128F96D8500568190 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE206A2128F96D8600568190 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE206A0B28F96D8500568190 = {
+			isa = PBXGroup;
+			children = (
+				BE206A1628F96D8500568190 /* WannVerbindung */,
+				BE206A2828F96D8600568190 /* WannVerbindung Watch App */,
+				BE206A1528F96D8500568190 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE206A1528F96D8500568190 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE206A1428F96D8500568190 /* WannVerbindung.app */,
+				BE206A2428F96D8600568190 /* WannVerbindung Watch App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE206A1628F96D8500568190 /* WannVerbindung */ = {
+			isa = PBXGroup;
+			children = (
+				BE206A1728F96D8500568190 /* WannVerbindungApp.swift */,
+				BE206A1928F96D8500568190 /* ContentView.swift */,
+				BE206A1B28F96D8600568190 /* Assets.xcassets */,
+				BE206A1D28F96D8600568190 /* Preview Content */,
+			);
+			path = WannVerbindung;
+			sourceTree = "<group>";
+		};
+		BE206A1D28F96D8600568190 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BE206A1E28F96D8600568190 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BE206A2828F96D8600568190 /* WannVerbindung Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				BE206A2928F96D8600568190 /* WannVerbindungApp.swift */,
+				BE206A2B28F96D8600568190 /* ContentView.swift */,
+				BE206A2D28F96D8700568190 /* Assets.xcassets */,
+				BE206A2F28F96D8700568190 /* Preview Content */,
+			);
+			path = "WannVerbindung Watch App";
+			sourceTree = "<group>";
+		};
+		BE206A2F28F96D8700568190 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BE206A3028F96D8700568190 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE206A1328F96D8500568190 /* WannVerbindung */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE206A3828F96D8700568190 /* Build configuration list for PBXNativeTarget "WannVerbindung" */;
+			buildPhases = (
+				BE206A1028F96D8500568190 /* Sources */,
+				BE206A1128F96D8500568190 /* Frameworks */,
+				BE206A1228F96D8500568190 /* Resources */,
+				BE206A3728F96D8700568190 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE206A2728F96D8600568190 /* PBXTargetDependency */,
+			);
+			name = WannVerbindung;
+			productName = WannVerbindung;
+			productReference = BE206A1428F96D8500568190 /* WannVerbindung.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE206A2328F96D8600568190 /* WannVerbindung Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE206A3428F96D8700568190 /* Build configuration list for PBXNativeTarget "WannVerbindung Watch App" */;
+			buildPhases = (
+				BE206A2028F96D8600568190 /* Sources */,
+				BE206A2128F96D8600568190 /* Frameworks */,
+				BE206A2228F96D8600568190 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WannVerbindung Watch App";
+			productName = "WannVerbindung Watch App";
+			productReference = BE206A2428F96D8600568190 /* WannVerbindung Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE206A0C28F96D8500568190 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					BE206A1328F96D8500568190 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					BE206A2328F96D8600568190 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = BE206A0F28F96D8500568190 /* Build configuration list for PBXProject "WannVerbindung" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE206A0B28F96D8500568190;
+			productRefGroup = BE206A1528F96D8500568190 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE206A1328F96D8500568190 /* WannVerbindung */,
+				BE206A2328F96D8600568190 /* WannVerbindung Watch App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE206A1228F96D8500568190 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE206A1F28F96D8600568190 /* Preview Assets.xcassets in Resources */,
+				BE206A1C28F96D8600568190 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE206A2228F96D8600568190 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE206A3128F96D8700568190 /* Preview Assets.xcassets in Resources */,
+				BE206A2E28F96D8700568190 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE206A1028F96D8500568190 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE206A1A28F96D8500568190 /* ContentView.swift in Sources */,
+				BE206A1828F96D8500568190 /* WannVerbindungApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE206A2028F96D8600568190 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE206A2C28F96D8600568190 /* ContentView.swift in Sources */,
+				BE206A2A28F96D8600568190 /* WannVerbindungApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE206A2728F96D8600568190 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE206A2328F96D8600568190 /* WannVerbindung Watch App */;
+			targetProxy = BE206A2628F96D8600568190 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BE206A3228F96D8700568190 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE206A3328F96D8700568190 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		BE206A3528F96D8700568190 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WannVerbindung Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 63NZMDFF7Z;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WannVerbindung;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.rhein.WannVerbindung;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.rhein.WannVerbindung.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		BE206A3628F96D8700568190 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WannVerbindung Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 63NZMDFF7Z;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WannVerbindung;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.rhein.WannVerbindung;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.rhein.WannVerbindung.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		BE206A3928F96D8700568190 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WannVerbindung/Preview Content\"";
+				DEVELOPMENT_TEAM = 63NZMDFF7Z;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WannVerbindung;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.rhein.WannVerbindung;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE206A3A28F96D8700568190 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WannVerbindung/Preview Content\"";
+				DEVELOPMENT_TEAM = 63NZMDFF7Z;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WannVerbindung;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.rhein.WannVerbindung;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE206A0F28F96D8500568190 /* Build configuration list for PBXProject "WannVerbindung" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE206A3228F96D8700568190 /* Debug */,
+				BE206A3328F96D8700568190 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE206A3428F96D8700568190 /* Build configuration list for PBXNativeTarget "WannVerbindung Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE206A3528F96D8700568190 /* Debug */,
+				BE206A3628F96D8700568190 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE206A3828F96D8700568190 /* Build configuration list for PBXNativeTarget "WannVerbindung" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE206A3928F96D8700568190 /* Debug */,
+				BE206A3A28F96D8700568190 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE206A0C28F96D8500568190 /* Project object */;
+}
