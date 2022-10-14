@@ -31,12 +31,10 @@
 		BE5A735B28F9A80B00F11CF7 /* NextDepartureWatchWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BE5A735728F9A80A00F11CF7 /* NextDepartureWatchWidget.intentdefinition */; };
 		BE5A735C28F9A80B00F11CF7 /* NextDepartureWatchWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BE5A735728F9A80A00F11CF7 /* NextDepartureWatchWidget.intentdefinition */; };
 		BE5A735F28F9A80B00F11CF7 /* NextDepartureWatchWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BE5A735128F9A80A00F11CF7 /* NextDepartureWatchWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BE5A736B28F9A9F100F11CF7 /* TransportRestService.h in Headers */ = {isa = PBXBuildFile; fileRef = BE5A736A28F9A9F100F11CF7 /* TransportRestService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BE5A736E28F9A9F100F11CF7 /* TransportRestService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5A736828F9A9F100F11CF7 /* TransportRestService.framework */; };
-		BE5A736F28F9A9F100F11CF7 /* TransportRestService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE5A736828F9A9F100F11CF7 /* TransportRestService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BE5A737528F9AA3400F11CF7 /* TransportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A737428F9AA3400F11CF7 /* TransportService.swift */; };
-		BE5A737D28F9B19C00F11CF7 /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A737C28F9B19C00F11CF7 /* Journey.swift */; };
-		BE5A738328F9B6D900F11CF7 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A738228F9B6D900F11CF7 /* Stop.swift */; };
+		BE5A739828F9C19500F11CF7 /* WannVerbindungServices.h in Headers */ = {isa = PBXBuildFile; fileRef = BE5A739728F9C19500F11CF7 /* WannVerbindungServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE5A739C28F9C1A000F11CF7 /* TransportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A737428F9AA3400F11CF7 /* TransportService.swift */; };
+		BE5A739D28F9C35200F11CF7 /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A737C28F9B19C00F11CF7 /* Journey.swift */; };
+		BE5A739E28F9C35500F11CF7 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A738228F9B6D900F11CF7 /* Stop.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,13 +58,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = BE5A735028F9A80A00F11CF7;
 			remoteInfo = NextDepartureWatchWidgetExtension;
-		};
-		BE5A736C28F9A9F100F11CF7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE206A0C28F96D8500568190 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BE5A736728F9A9F100F11CF7;
-			remoteInfo = TransportRestService;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -114,17 +105,6 @@
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE5A737328F9A9F100F11CF7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BE5A736F28F9A9F100F11CF7 /* TransportRestService.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -151,11 +131,15 @@
 		BE5A735728F9A80A00F11CF7 /* NextDepartureWatchWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = NextDepartureWatchWidget.intentdefinition; sourceTree = "<group>"; };
 		BE5A735828F9A80B00F11CF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE5A735A28F9A80B00F11CF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE5A736828F9A9F100F11CF7 /* TransportRestService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TransportRestService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE5A736A28F9A9F100F11CF7 /* TransportRestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransportRestService.h; sourceTree = "<group>"; };
 		BE5A737428F9AA3400F11CF7 /* TransportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportService.swift; sourceTree = "<group>"; };
 		BE5A737C28F9B19C00F11CF7 /* Journey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
 		BE5A738228F9B6D900F11CF7 /* Stop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
+		BE5A738F28F9C0E700F11CF7 /* WannVerbindung.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WannVerbindung.entitlements; sourceTree = "<group>"; };
+		BE5A739528F9C19500F11CF7 /* WannVerbindungServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WannVerbindungServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE5A739728F9C19500F11CF7 /* WannVerbindungServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WannVerbindungServices.h; sourceTree = "<group>"; };
+		BE5A739F28F9C3D500F11CF7 /* WannVerbindung Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WannVerbindung Watch App.entitlements"; sourceTree = "<group>"; };
+		BE5A73A028F9C3DD00F11CF7 /* NextDepartureIPhoneWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NextDepartureIPhoneWidgetExtension.entitlements; sourceTree = "<group>"; };
+		BE5A73A128F9C3F500F11CF7 /* NextDepartureWatchWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NextDepartureWatchWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +147,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE5A736E28F9A9F100F11CF7 /* TransportRestService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +175,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE5A736528F9A9F100F11CF7 /* Frameworks */ = {
+		BE5A739228F9C19500F11CF7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -205,11 +188,13 @@
 		BE206A0B28F96D8500568190 = {
 			isa = PBXGroup;
 			children = (
+				BE5A73A128F9C3F500F11CF7 /* NextDepartureWatchWidgetExtension.entitlements */,
+				BE5A73A028F9C3DD00F11CF7 /* NextDepartureIPhoneWidgetExtension.entitlements */,
 				BE206A1628F96D8500568190 /* WannVerbindung */,
 				BE206A2828F96D8600568190 /* WannVerbindung Watch App */,
 				BE5A733C28F9A0FF00F11CF7 /* NextDepartureIPhoneWidget */,
 				BE5A735428F9A80A00F11CF7 /* NextDepartureWatchWidget */,
-				BE5A736928F9A9F100F11CF7 /* TransportRestService */,
+				BE5A739628F9C19500F11CF7 /* WannVerbindungServices */,
 				BE5A72EF28F97A6200F11CF7 /* Frameworks */,
 				BE206A1528F96D8500568190 /* Products */,
 			);
@@ -222,7 +207,7 @@
 				BE206A2428F96D8600568190 /* WannVerbindung Watch App.app */,
 				BE5A733928F9A0FF00F11CF7 /* NextDepartureIPhoneWidgetExtension.appex */,
 				BE5A735128F9A80A00F11CF7 /* NextDepartureWatchWidgetExtension.appex */,
-				BE5A736828F9A9F100F11CF7 /* TransportRestService.framework */,
+				BE5A739528F9C19500F11CF7 /* WannVerbindungServices.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -230,6 +215,7 @@
 		BE206A1628F96D8500568190 /* WannVerbindung */ = {
 			isa = PBXGroup;
 			children = (
+				BE5A738F28F9C0E700F11CF7 /* WannVerbindung.entitlements */,
 				BE206A1728F96D8500568190 /* WannVerbindungApp.swift */,
 				BE206A1928F96D8500568190 /* ContentView.swift */,
 				BE206A1B28F96D8600568190 /* Assets.xcassets */,
@@ -249,6 +235,7 @@
 		BE206A2828F96D8600568190 /* WannVerbindung Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				BE5A739F28F9C3D500F11CF7 /* WannVerbindung Watch App.entitlements */,
 				BE206A2928F96D8600568190 /* WannVerbindungApp.swift */,
 				BE206A2B28F96D8600568190 /* ContentView.swift */,
 				BE206A2D28F96D8700568190 /* Assets.xcassets */,
@@ -297,25 +284,33 @@
 			path = NextDepartureWatchWidget;
 			sourceTree = "<group>";
 		};
-		BE5A736928F9A9F100F11CF7 /* TransportRestService */ = {
+		BE5A738428F9BFE300F11CF7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BE5A736A28F9A9F100F11CF7 /* TransportRestService.h */,
-				BE5A737428F9AA3400F11CF7 /* TransportService.swift */,
 				BE5A737C28F9B19C00F11CF7 /* Journey.swift */,
 				BE5A738228F9B6D900F11CF7 /* Stop.swift */,
 			);
-			path = TransportRestService;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BE5A739628F9C19500F11CF7 /* WannVerbindungServices */ = {
+			isa = PBXGroup;
+			children = (
+				BE5A738428F9BFE300F11CF7 /* Models */,
+				BE5A739728F9C19500F11CF7 /* WannVerbindungServices.h */,
+				BE5A737428F9AA3400F11CF7 /* TransportService.swift */,
+			);
+			path = WannVerbindungServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		BE5A736328F9A9F100F11CF7 /* Headers */ = {
+		BE5A739028F9C19500F11CF7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE5A736B28F9A9F100F11CF7 /* TransportRestService.h in Headers */,
+				BE5A739828F9C19500F11CF7 /* WannVerbindungServices.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,14 +326,12 @@
 				BE206A1228F96D8500568190 /* Resources */,
 				BE206A3728F96D8700568190 /* Embed Watch Content */,
 				BE5A733428F99DC700F11CF7 /* Embed Foundation Extensions */,
-				BE5A737328F9A9F100F11CF7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				BE206A2728F96D8600568190 /* PBXTargetDependency */,
 				BE5A734828F9A10000F11CF7 /* PBXTargetDependency */,
-				BE5A736D28F9A9F100F11CF7 /* PBXTargetDependency */,
 			);
 			name = WannVerbindung;
 			productName = WannVerbindung;
@@ -399,22 +392,22 @@
 			productReference = BE5A735128F9A80A00F11CF7 /* NextDepartureWatchWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		BE5A736728F9A9F100F11CF7 /* TransportRestService */ = {
+		BE5A739428F9C19500F11CF7 /* WannVerbindungServices */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE5A737028F9A9F100F11CF7 /* Build configuration list for PBXNativeTarget "TransportRestService" */;
+			buildConfigurationList = BE5A739928F9C19500F11CF7 /* Build configuration list for PBXNativeTarget "WannVerbindungServices" */;
 			buildPhases = (
-				BE5A736328F9A9F100F11CF7 /* Headers */,
-				BE5A736428F9A9F100F11CF7 /* Sources */,
-				BE5A736528F9A9F100F11CF7 /* Frameworks */,
-				BE5A736628F9A9F100F11CF7 /* Resources */,
+				BE5A739028F9C19500F11CF7 /* Headers */,
+				BE5A739128F9C19500F11CF7 /* Sources */,
+				BE5A739228F9C19500F11CF7 /* Frameworks */,
+				BE5A739328F9C19500F11CF7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = TransportRestService;
-			productName = TransportRestService;
-			productReference = BE5A736828F9A9F100F11CF7 /* TransportRestService.framework */;
+			name = WannVerbindungServices;
+			productName = WannVerbindungServices;
+			productReference = BE5A739528F9C19500F11CF7 /* WannVerbindungServices.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -439,9 +432,8 @@
 					BE5A735028F9A80A00F11CF7 = {
 						CreatedOnToolsVersion = 14.1;
 					};
-					BE5A736728F9A9F100F11CF7 = {
+					BE5A739428F9C19500F11CF7 = {
 						CreatedOnToolsVersion = 14.1;
-						LastSwiftMigration = 1410;
 					};
 				};
 			};
@@ -462,7 +454,7 @@
 				BE206A2328F96D8600568190 /* WannVerbindung Watch App */,
 				BE5A733828F9A0FF00F11CF7 /* NextDepartureIPhoneWidgetExtension */,
 				BE5A735028F9A80A00F11CF7 /* NextDepartureWatchWidgetExtension */,
-				BE5A736728F9A9F100F11CF7 /* TransportRestService */,
+				BE5A739428F9C19500F11CF7 /* WannVerbindungServices */,
 			);
 		};
 /* End PBXProject section */
@@ -502,7 +494,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE5A736628F9A9F100F11CF7 /* Resources */ = {
+		BE5A739328F9C19500F11CF7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -551,13 +543,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE5A736428F9A9F100F11CF7 /* Sources */ = {
+		BE5A739128F9C19500F11CF7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE5A737D28F9B19C00F11CF7 /* Journey.swift in Sources */,
-				BE5A738328F9B6D900F11CF7 /* Stop.swift in Sources */,
-				BE5A737528F9AA3400F11CF7 /* TransportService.swift in Sources */,
+				BE5A739D28F9C35200F11CF7 /* Journey.swift in Sources */,
+				BE5A739C28F9C1A000F11CF7 /* TransportService.swift in Sources */,
+				BE5A739E28F9C35500F11CF7 /* Stop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,11 +570,6 @@
 			isa = PBXTargetDependency;
 			target = BE5A735028F9A80A00F11CF7 /* NextDepartureWatchWidgetExtension */;
 			targetProxy = BE5A735D28F9A80B00F11CF7 /* PBXContainerItemProxy */;
-		};
-		BE5A736D28F9A9F100F11CF7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BE5A736728F9A9F100F11CF7 /* TransportRestService */;
-			targetProxy = BE5A736C28F9A9F100F11CF7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -702,6 +689,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WannVerbindung Watch App/WannVerbindung Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WannVerbindung Watch App/Preview Content\"";
@@ -734,6 +722,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WannVerbindung Watch App/WannVerbindung Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WannVerbindung Watch App/Preview Content\"";
@@ -767,6 +756,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WannVerbindung/WannVerbindung.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WannVerbindung/Preview Content\"";
@@ -800,6 +790,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WannVerbindung/WannVerbindung.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WannVerbindung/Preview Content\"";
@@ -833,6 +824,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = NextDepartureIPhoneWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 63NZMDFF7Z;
@@ -862,6 +854,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = NextDepartureIPhoneWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 63NZMDFF7Z;
@@ -892,6 +885,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = NextDepartureWatchWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 63NZMDFF7Z;
@@ -922,6 +916,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = NextDepartureWatchWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 63NZMDFF7Z;
@@ -948,10 +943,9 @@
 			};
 			name = Release;
 		};
-		BE5A737128F9A9F100F11CF7 /* Debug */ = {
+		BE5A739A28F9C19500F11CF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -973,7 +967,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.rhein.TransportRestService;
+				PRODUCT_BUNDLE_IDENTIFIER = me.rhein.WannVerbindungServices;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
@@ -981,7 +975,6 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,4";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -990,10 +983,9 @@
 			};
 			name = Debug;
 		};
-		BE5A737228F9A9F100F11CF7 /* Release */ = {
+		BE5A739B28F9C19500F11CF7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1015,7 +1007,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.rhein.TransportRestService;
+				PRODUCT_BUNDLE_IDENTIFIER = me.rhein.WannVerbindungServices;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
@@ -1079,11 +1071,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE5A737028F9A9F100F11CF7 /* Build configuration list for PBXNativeTarget "TransportRestService" */ = {
+		BE5A739928F9C19500F11CF7 /* Build configuration list for PBXNativeTarget "WannVerbindungServices" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BE5A737128F9A9F100F11CF7 /* Debug */,
-				BE5A737228F9A9F100F11CF7 /* Release */,
+				BE5A739A28F9C19500F11CF7 /* Debug */,
+				BE5A739B28F9C19500F11CF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
