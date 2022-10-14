@@ -1,6 +1,6 @@
 //
-//  NextDepartureWidget.swift
-//  NextDepartureWidget
+//  NextDepartureIPhoneWidget.swift
+//  NextDepartureIPhoneWidget
 //
 //  Created by Florian Rhein on 14.10.22.
 //
@@ -24,20 +24,14 @@ struct Provider: IntentTimelineProvider {
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for minuteOffset in 0 ..< 10 {
-            let entryDate = Calendar.current.date(byAdding: .minute, value: minuteOffset, to: currentDate)!
+        for hourOffset in 0 ..< 5 {
+            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
             let entry = SimpleEntry(date: entryDate, configuration: configuration)
             entries.append(entry)
         }
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
-    }
-
-    func recommendations() -> [IntentRecommendation<ConfigurationIntent>] {
-        return [
-            IntentRecommendation(intent: ConfigurationIntent(), description: "My Intent Widget")
-        ]
     }
 }
 
@@ -46,33 +40,30 @@ struct SimpleEntry: TimelineEntry {
     let configuration: ConfigurationIntent
 }
 
-struct NextDepartureWidgetEntryView : View {
+struct NextDepartureIPhoneWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            Text("Next departure:")
-            Text(entry.date, style: .time)
-        }
+        Text(entry.date, style: .time)
     }
 }
 
-@main
-struct NextDepartureWidget: Widget {
-    let kind: String = "NextDepartureWidget"
+struct NextDepartureIPhoneWidget: Widget {
+    let kind: String = "NextDepartureIPhoneWidget"
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            NextDepartureWidgetEntryView(entry: entry)
+            NextDepartureIPhoneWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Next Departure")
-        .description("Displays the next departure for the current cummute")
+        .configurationDisplayName("My Widget")
+        .description("This is an example widget.")
+        .supportedFamilies([.accessoryRectangular, .accessoryInline])
     }
 }
 
-struct NextDepartureWidget_Previews: PreviewProvider {
+struct NextDepartureIPhoneWidget_Previews: PreviewProvider {
     static var previews: some View {
-        NextDepartureWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .accessoryInline))
+        NextDepartureIPhoneWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+            .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }
