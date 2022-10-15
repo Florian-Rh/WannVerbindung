@@ -15,6 +15,7 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, worldy!")
+            Text(UserDefaults(suiteName: "group.rhein.me.wannVerbindung")?.string(forKey: "homeStation") ?? "unset")
         }
         .padding()
     }

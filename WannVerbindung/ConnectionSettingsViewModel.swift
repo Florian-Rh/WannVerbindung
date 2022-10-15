@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WidgetKit
 
 @MainActor internal class ConnectionSettingsViewModel: ObservableObject {
     @Published internal var homeStation: String = ""
@@ -18,7 +19,16 @@ import Foundation
 
 
     internal func saveConfiguration() {
+        let userDefaultSuite = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")
+        userDefaultSuite?.set(homeStation, forKey: "homeStation")
+        userDefaultSuite?.set(workStation, forKey: "workStation")
+        userDefaultSuite?.set(outboundStart, forKey: "outboundStart")
+        userDefaultSuite?.set(outboundEnd, forKey: "outboundEnd")
+        userDefaultSuite?.set(inboundStart, forKey: "inboundStart")
+        userDefaultSuite?.set(inboundEnd, forKey: "inboundEnd")
+        WidgetCenter.shared.reloadTimelines(ofKind: "NextDepartureIPhoneWidget")
+        WidgetCenter.shared.reloadTimelines(ofKind: "NextDepartureWatchWidget")
 
+        // TODO: add some kind of success notification
     }
-
 }

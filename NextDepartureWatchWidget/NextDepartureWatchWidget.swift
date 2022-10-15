@@ -11,27 +11,32 @@ import Intents
 import WannVerbindungServices
 
 struct Provider: IntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
+    func placeholder(in context: Context) -> NextDepartureTimelineEntry {
+        .init(direction: .inbound, plannedDeparture: Date(), delay: 5, isCancelled: true, dummy: "placeholder")
     }
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
-        completion(entry)
+    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (NextDepartureTimelineEntry) -> ()) {
+        completion(
+            .init(direction: .inbound, plannedDeparture: Date(), delay: 5, isCancelled: true, dummy: "snapshot")
+        )
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
+        let homestation = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")?.string(forKey: "homeStation") ?? "unset"
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
+        let timeline = Timeline(
+            entries: [
+                NextDepartureTimelineEntry(
+                    direction: .inbound,
+                    plannedDeparture: Date(),
+                    delay: 5,
+                    isCancelled: true,
+                    dummy: homestation
+                )
+            ],
+            policy: .atEnd
+        )
 
-        let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
 
@@ -42,17 +47,13 @@ struct Provider: IntentTimelineProvider {
     }
 }
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let configuration: ConfigurationIntent
-}
-
 struct NextDepartureWatchWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
         VStack {
-            Text("Next Departure")
+            Text("Next Departure from:")
+            Text(entry.dummy)
             Text(entry.date, style: .time)
         }
     }
@@ -73,7 +74,7 @@ struct NextDepartureWatchWidget: Widget {
 
 struct NextDepartureWatchWidget_Previews: PreviewProvider {
     static var previews: some View {
-        NextDepartureWatchWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+        NextDepartureWatchWidgetEntryView(entry: .init(direction: .inbound, plannedDeparture: Date(), delay: 5, isCancelled: true, dummy: "preview"))
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }

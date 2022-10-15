@@ -11,35 +11,51 @@ import Intents
 import WannVerbindungServices
 
 struct Provider: IntentTimelineProvider {
-    func placeholder(in context: Context) -> NextDepartureEntry {
-        NextDepartureEntry(date: Date(), configuration: ConfigurationIntent())
+    func placeholder(in context: Context) -> NextDepartureTimelineEntry {
+        .init(direction: .inbound, plannedDeparture: Date(), delay: 5, isCancelled: true, dummy: "placeholder")
     }
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (NextDepartureEntry) -> ()) {
-        let entry = NextDepartureEntry(date: Date(), configuration: configuration)
-        completion(entry)
+    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (NextDepartureTimelineEntry) -> ()) {
+        completion(
+            .init(direction: .inbound, plannedDeparture: Date(), delay: 5, isCancelled: true, dummy: "snapshot")
+        )
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let currentDate = Date()
-        let entry = NextDepartureEntry(date: currentDate, configuration: configuration)
-        let nextTimelineDate = Calendar.current.date(byAdding: .minute, value: 1, to: currentDate)!
-        let timeline = Timeline(entries: [entry], policy: .after(nextTimelineDate))
+        let homestation = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")?.string(forKey: "homeStation") ?? "unset"
+
+        let timeline = Timeline(
+            entries: [
+                NextDepartureTimelineEntry(
+                    direction: .inbound,
+                    plannedDeparture: Date(),
+                    delay: 5,
+                    isCancelled: true,
+                    dummy: homestation
+                )
+            ],
+            policy: .after(Calendar.current.date(byAdding: .minute, value: 1, to: Date())!)
+        )
 
         completion(timeline)
     }
-}
 
-struct NextDepartureEntry: TimelineEntry {
-    let date: Date
-    let configuration: ConfigurationIntent
+    func recommendations() -> [IntentRecommendation<ConfigurationIntent>] {
+        return [
+            IntentRecommendation(intent: ConfigurationIntent(), description: "My Intent Widget")
+        ]
+    }
 }
 
 struct NextDepartureIPhoneWidgetEntryView : View {
-    var entry: Provider.Entry
+    var entry: NextDepartureTimelineEntry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        VStack {
+            Text("Next Departure from \(entry.dummy):")
+                .multilineTextAlignment(.center)
+            Text(entry.plannedDeparture, style: .time)
+        }
     }
 }
 
@@ -58,7 +74,7 @@ struct NextDepartureIPhoneWidget: Widget {
 
 struct NextDepartureIPhoneWidget_Previews: PreviewProvider {
     static var previews: some View {
-        NextDepartureIPhoneWidgetEntryView(entry: NextDepartureEntry(date: Date(), configuration: ConfigurationIntent()))
+        NextDepartureIPhoneWidgetEntryView(entry: .init(direction: .inbound, plannedDeparture: Date(), delay: 5, isCancelled: true, dummy: "preview"))
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }

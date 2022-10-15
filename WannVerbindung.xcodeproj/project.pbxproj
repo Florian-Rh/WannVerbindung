@@ -40,6 +40,8 @@
 		BE7727AE28F9CAED003F89AE /* WannVerbindungServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5A739528F9C19500F11CF7 /* WannVerbindungServices.framework */; };
 		BE7727AF28F9CAED003F89AE /* WannVerbindungServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE5A739528F9C19500F11CF7 /* WannVerbindungServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE7727B428F9D08E003F89AE /* ConnectionSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727B328F9D08E003F89AE /* ConnectionSettingsViewModel.swift */; };
+		BE7727B628FAB921003F89AE /* NextDepartureTimelineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727B528FAB921003F89AE /* NextDepartureTimelineEntry.swift */; };
+		BE7727B828FAB974003F89AE /* TravelDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727B728FAB974003F89AE /* TravelDirection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +184,8 @@
 		BE5A73A028F9C3DD00F11CF7 /* NextDepartureIPhoneWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NextDepartureIPhoneWidgetExtension.entitlements; sourceTree = "<group>"; };
 		BE5A73A128F9C3F500F11CF7 /* NextDepartureWatchWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NextDepartureWatchWidgetExtension.entitlements; sourceTree = "<group>"; };
 		BE7727B328F9D08E003F89AE /* ConnectionSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSettingsViewModel.swift; sourceTree = "<group>"; };
+		BE7727B528FAB921003F89AE /* NextDepartureTimelineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextDepartureTimelineEntry.swift; sourceTree = "<group>"; };
+		BE7727B728FAB974003F89AE /* TravelDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDirection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +338,7 @@
 			children = (
 				BE5A737C28F9B19C00F11CF7 /* Journey.swift */,
 				BE5A738228F9B6D900F11CF7 /* Stop.swift */,
+				BE7727B728FAB974003F89AE /* TravelDirection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -341,11 +346,20 @@
 		BE5A739628F9C19500F11CF7 /* WannVerbindungServices */ = {
 			isa = PBXGroup;
 			children = (
+				BE7727B928FABF88003F89AE /* WidgetKit */,
 				BE5A738428F9BFE300F11CF7 /* Models */,
 				BE5A739728F9C19500F11CF7 /* WannVerbindungServices.h */,
 				BE5A737428F9AA3400F11CF7 /* TransportService.swift */,
 			);
 			path = WannVerbindungServices;
+			sourceTree = "<group>";
+		};
+		BE7727B928FABF88003F89AE /* WidgetKit */ = {
+			isa = PBXGroup;
+			children = (
+				BE7727B528FAB921003F89AE /* NextDepartureTimelineEntry.swift */,
+			);
+			path = WidgetKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,8 +611,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7727B828FAB974003F89AE /* TravelDirection.swift in Sources */,
 				BE5A739D28F9C35200F11CF7 /* Journey.swift in Sources */,
 				BE5A739C28F9C1A000F11CF7 /* TransportService.swift in Sources */,
+				BE7727B628FAB921003F89AE /* NextDepartureTimelineEntry.swift in Sources */,
 				BE5A739E28F9C35500F11CF7 /* Stop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
