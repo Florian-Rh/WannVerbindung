@@ -20,8 +20,8 @@ import WidgetKit
 
     internal func saveConfiguration() {
         let userDefaultSuite = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")
-        userDefaultSuite?.set(homeStation, forKey: "homeStation")
-        userDefaultSuite?.set(workStation, forKey: "workStation")
+        userDefaultSuite?.set(homeStation, forKey: "homeStationCode")
+        userDefaultSuite?.set(workStation, forKey: "workStationCode")
         userDefaultSuite?.set(outboundStart, forKey: "outboundStart")
         userDefaultSuite?.set(outboundEnd, forKey: "outboundEnd")
         userDefaultSuite?.set(inboundStart, forKey: "inboundStart")

@@ -12,11 +12,11 @@ public class NextDepartureTimelineEntry: TimelineEntry {
 
     public let direction: TravelDirection
     public let plannedDeparture: Date
-    public let delay: Int
+    public let delay: Int?
     public let isCancelled: Bool
     public let dummy: String
 
-    public init(direction: TravelDirection, plannedDeparture: Date, delay: Int, isCancelled: Bool, dummy: String) {
+    public init(direction: TravelDirection, plannedDeparture: Date, delay: Int?, isCancelled: Bool, dummy: String) {
         self.direction = direction
         self.plannedDeparture = plannedDeparture
         self.delay = delay

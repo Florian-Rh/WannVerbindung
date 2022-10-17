@@ -22,22 +22,34 @@ struct Provider: IntentTimelineProvider {
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let homestation = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")?.string(forKey: "homeStation") ?? "unset"
+        let userDefaultsSuite = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")!
+        let homestation = userDefaultsSuite.integer(forKey: "homeStationCode")
+        let workstation = userDefaultsSuite.integer(forKey: "workStationCode")
 
-        let timeline = Timeline(
-            entries: [
-                NextDepartureTimelineEntry(
-                    direction: .inbound,
-                    plannedDeparture: Date(),
-                    delay: 5,
-                    isCancelled: true,
-                    dummy: homestation
-                )
-            ],
-            policy: .after(Calendar.current.date(byAdding: .minute, value: 1, to: Date())!)
-        )
+        Task {
+            let journeySearchResult = try await TransportService().getJourneys(from: homestation, to: workstation)
+            // TODO: currently only journey with one leg (no transfer) are supported
+            // A more fitting data model should be introduced
+            let nextJourneyLeg = journeySearchResult.journeys.first!.legs.first!
 
-        completion(timeline)
+            // TODO: currently only one timeline entry is created and refreshed after one minute.
+            // To save resources and to make the widget more reliable, more timeline entries for future
+            // connections should be added
+            let timeline = Timeline(
+                entries: [
+                    NextDepartureTimelineEntry(
+                        direction: .outbound,
+                        plannedDeparture: nextJourneyLeg.plannedDeparture,
+                        delay: nextJourneyLeg.departureDelay,
+                        isCancelled: nextJourneyLeg.cancelled ?? false,
+                        dummy: "\(homestation)"
+                    )
+                ],
+                policy: .after(Calendar.current.date(byAdding: .minute, value: 1, to: Date())!)
+            )
+
+            completion(timeline)
+        }
     }
 
     func recommendations() -> [IntentRecommendation<ConfigurationIntent>] {

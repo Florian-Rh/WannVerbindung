@@ -20,23 +20,30 @@ import WidgetKit
 
     internal let transportService: TransportService = TransportService()
 
+    // TODO: computed properties for now, the station codes should be set using a response from `getStops`
+    private var homeStationCode: Int {
+        .init(self.homeStation)!
+    }
+
+    private var workStationCode: Int {
+        .init(self.workStation)!
+    }
+
     internal init() {
         let userDefautsSuite = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")
-        self.homeStation = userDefautsSuite?.string(forKey: "homeStation") ?? ""
-        self.workStation = userDefautsSuite?.string(forKey: "workStation") ?? ""
-
+        self.homeStation = userDefautsSuite?.string(forKey: "homeStationCode") ?? ""
+        self.workStation = userDefautsSuite?.string(forKey: "workStationCode") ?? ""
     }
 
     internal func saveConfiguration() {
         let userDefaultSuite = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")
-        userDefaultSuite?.set(homeStation, forKey: "homeStation")
-        userDefaultSuite?.set(workStation, forKey: "workStation")
+        userDefaultSuite?.set(homeStationCode, forKey: "homeStationCode")
+        userDefaultSuite?.set(workStationCode, forKey: "workStationCode")
         userDefaultSuite?.set(outboundStart, forKey: "outboundStart")
         userDefaultSuite?.set(outboundEnd, forKey: "outboundEnd")
         userDefaultSuite?.set(inboundStart, forKey: "inboundStart")
         userDefaultSuite?.set(inboundEnd, forKey: "inboundEnd")
         WidgetCenter.shared.reloadTimelines(ofKind: "NextDepartureIPhoneWidget")
-        WidgetCenter.shared.reloadTimelines(ofKind: "NextDepartureWatchWidget")
 
         // TODO: add some kind of success notification
     }
@@ -45,8 +52,9 @@ import WidgetKit
         let homeStationCode = Int(homeStation)!
         let workStationCode = Int(workStation)!
         Task {
-            let journey = try await transportService.getJourney(from: homeStationCode, to: workStationCode)
-            print(journey)
+            let journey = try await transportService.getJourneys(from: homeStationCode, to: workStationCode)
+
+            // TODO: trigger navigation to NextConnectionsView (TBA)
         }
     }
 }

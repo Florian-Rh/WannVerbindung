@@ -31,7 +31,7 @@ public class TransportService {
         self.jsonDecoder.dateDecodingStrategy = .iso8601
     }
 
-    public func getJourney(from: Int, to: Int) async throws -> JourneySearchResult {
+    public func getJourneys(from: Int, to: Int) async throws -> JourneySearchResult {
         let urlRequest = Self.getUrlRequest(
             forEndpoint: "journeys",
             withQueryItems: [
@@ -50,7 +50,7 @@ public class TransportService {
 
     public func getStops(forQuery query: String) async throws -> [Stop] {
         let urlRequest = Self.getUrlRequest(
-            forEndpoint: "journey",
+            forEndpoint: "localtions",
             withQueryItems: [
                 .init(name: "query", value: query),
                 .init(name: "fuzzy", value: "false"),
