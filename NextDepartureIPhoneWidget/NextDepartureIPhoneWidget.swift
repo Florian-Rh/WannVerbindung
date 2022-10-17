@@ -12,12 +12,26 @@ import WannVerbindungServices
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> NextDepartureTimelineEntry {
-        .init(direction: .inbound, plannedDeparture: Date(), delay: 5, isCancelled: true, dummy: "placeholder")
+        .init(
+            direction: .outbound,
+            plannedDeparture: nil,
+            startStationName: "origin",
+            destinationStationName: "destination",
+            delay: nil,
+            isCancelled: false
+        )
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (NextDepartureTimelineEntry) -> ()) {
         completion(
-            .init(direction: .inbound, plannedDeparture: Date(), delay: 5, isCancelled: true, dummy: "snapshot")
+            .init(
+                direction: .outbound,
+                plannedDeparture: nil,
+                startStationName: "origin",
+                destinationStationName: "destination",
+                delay: nil,
+                isCancelled: false
+            )
         )
     }
 
@@ -25,28 +39,46 @@ struct Provider: IntentTimelineProvider {
         let userDefaultsSuite = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")!
         let homestation = userDefaultsSuite.integer(forKey: "homeStationCode")
         let workstation = userDefaultsSuite.integer(forKey: "workStationCode")
-
+        let timelineReloadpolicy = TimelineReloadPolicy.after(Calendar.current.date(byAdding: .minute, value: 1, to: Date())!)
         Task {
-            let journeySearchResult = try await TransportService().getJourneys(from: homestation, to: workstation)
-            // TODO: currently only journey with one leg (no transfer) are supported
-            // A more fitting data model should be introduced
-            let nextJourneyLeg = journeySearchResult.journeys.first!.legs.first!
+            let timeline: Timeline<NextDepartureTimelineEntry>
+            do {
+                let journeySearchResult = try await TransportService().getJourneys(from: homestation, to: workstation)
+                // TODO: currently only journey with one leg (no transfer) are supported
+                // A more fitting data model should be introduced
+                let nextJourneyLeg = journeySearchResult.journeys.first!.legs.first!
 
-            // TODO: currently only one timeline entry is created and refreshed after one minute.
-            // To save resources and to make the widget more reliable, more timeline entries for future
-            // connections should be added
-            let timeline = Timeline(
-                entries: [
-                    NextDepartureTimelineEntry(
-                        direction: .outbound,
-                        plannedDeparture: nextJourneyLeg.plannedDeparture,
-                        delay: nextJourneyLeg.departureDelay,
-                        isCancelled: nextJourneyLeg.cancelled ?? false,
-                        dummy: "\(homestation)"
-                    )
-                ],
-                policy: .after(Calendar.current.date(byAdding: .minute, value: 1, to: Date())!)
-            )
+                // TODO: currently only one timeline entry is created and refreshed after one minute.
+                // To save resources and to make the widget more reliable, more timeline entries for future
+                // connections should be added
+                timeline = Timeline(
+                    entries: [
+                        NextDepartureTimelineEntry(
+                            direction: .outbound,
+                            plannedDeparture: nextJourneyLeg.plannedDeparture,
+                            startStationName: nextJourneyLeg.origin.name,
+                            destinationStationName: nextJourneyLeg.destination.name,
+                            delay: nextJourneyLeg.departureDelay,
+                            isCancelled: nextJourneyLeg.cancelled ?? false
+                        )
+                    ],
+                    policy: timelineReloadpolicy
+                )
+            } catch let error {
+                timeline = Timeline(
+                    entries: [
+                        NextDepartureTimelineEntry(
+                            direction: .outbound,
+                            plannedDeparture: nil,
+                            startStationName: "\(homestation)",
+                            destinationStationName: "\(workstation)",
+                            delay: nil,
+                            isCancelled: true
+                        )
+                    ],
+                    policy: timelineReloadpolicy
+                )
+            }
 
             completion(timeline)
         }
@@ -64,9 +96,16 @@ struct NextDepartureIPhoneWidgetEntryView : View {
 
     var body: some View {
         VStack {
-            Text("Next Departure from \(entry.dummy):")
+            Text("Next Departure from \(entry.startStationName) to \(entry.destinationStationName):")
                 .multilineTextAlignment(.center)
-            Text(entry.plannedDeparture, style: .time)
+            if
+                let plannedDeparture = entry.plannedDeparture,
+                !entry.isCancelled
+            {
+                Text(plannedDeparture, style: .time)
+            } else {
+                Text("⚠️")
+            }
         }
     }
 }
@@ -86,7 +125,16 @@ struct NextDepartureIPhoneWidget: Widget {
 
 struct NextDepartureIPhoneWidget_Previews: PreviewProvider {
     static var previews: some View {
-        NextDepartureIPhoneWidgetEntryView(entry: .init(direction: .inbound, plannedDeparture: Date(), delay: 5, isCancelled: true, dummy: "preview"))
-            .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
+        NextDepartureIPhoneWidgetEntryView(
+            entry: .init(
+                direction: .outbound,
+                plannedDeparture: nil,
+                startStationName: "origin",
+                destinationStationName: "destination",
+                delay: nil,
+                isCancelled: false
+            )
+        )
+        .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }

@@ -12,32 +12,76 @@ import WannVerbindungServices
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> NextDepartureTimelineEntry {
-        .init(direction: .inbound, plannedDeparture: Date(), delay: 5, isCancelled: true, dummy: "placeholder")
+        .init(
+            direction: .outbound,
+            plannedDeparture: nil,
+            startStationName: "origin",
+            destinationStationName: "destination",
+            delay: nil,
+            isCancelled: false
+        )
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (NextDepartureTimelineEntry) -> ()) {
         completion(
-            .init(direction: .inbound, plannedDeparture: Date(), delay: 5, isCancelled: true, dummy: "snapshot")
+            .init(
+                direction: .outbound,
+                plannedDeparture: nil,
+                startStationName: "origin",
+                destinationStationName: "destination",
+                delay: nil,
+                isCancelled: false
+            )
         )
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let homestation = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")?.string(forKey: "homeStationCode") ?? "unset"
-        
-        let timeline = Timeline(
-            entries: [
-                NextDepartureTimelineEntry(
-                    direction: .inbound,
-                    plannedDeparture: Date(),
-                    delay: 5,
-                    isCancelled: true,
-                    dummy: homestation
-                )
-            ],
-            policy: .atEnd
-        )
+        let userDefaultsSuite = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")!
+        let homestation = userDefaultsSuite.integer(forKey: "homeStationCode")
+        let workstation = userDefaultsSuite.integer(forKey: "workStationCode")
+        let timelineReloadpolicy = TimelineReloadPolicy.after(Calendar.current.date(byAdding: .minute, value: 1, to: Date())!)
+        Task {
+            let timeline: Timeline<NextDepartureTimelineEntry>
+            do {
+                let journeySearchResult = try await TransportService().getJourneys(from: homestation, to: workstation)
+                // TODO: currently only journey with one leg (no transfer) are supported
+                // A more fitting data model should be introduced
+                let nextJourneyLeg = journeySearchResult.journeys.first!.legs.first!
 
-        completion(timeline)
+                // TODO: currently only one timeline entry is created and refreshed after one minute.
+                // To save resources and to make the widget more reliable, more timeline entries for future
+                // connections should be added
+                timeline = Timeline(
+                    entries: [
+                        NextDepartureTimelineEntry(
+                            direction: .outbound,
+                            plannedDeparture: nextJourneyLeg.plannedDeparture,
+                            startStationName: nextJourneyLeg.origin.name,
+                            destinationStationName: nextJourneyLeg.destination.name,
+                            delay: nextJourneyLeg.departureDelay,
+                            isCancelled: nextJourneyLeg.cancelled ?? false
+                        )
+                    ],
+                    policy: timelineReloadpolicy
+                )
+            } catch let error {
+                timeline = Timeline(
+                    entries: [
+                        NextDepartureTimelineEntry(
+                            direction: .outbound,
+                            plannedDeparture: nil,
+                            startStationName: "\(homestation)",
+                            destinationStationName: "\(workstation)",
+                            delay: nil,
+                            isCancelled: true
+                        )
+                    ],
+                    policy: timelineReloadpolicy
+                )
+            }
+
+            completion(timeline)
+        }
     }
 
     func recommendations() -> [IntentRecommendation<ConfigurationIntent>] {
@@ -52,9 +96,16 @@ struct NextDepartureWatchWidgetEntryView : View {
 
     var body: some View {
         VStack {
-            Text("Next Departure from:")
-            Text(entry.dummy)
-            Text(entry.date, style: .time)
+            Text("Next Departure from \(entry.startStationName) to \(entry.destinationStationName):")
+                .multilineTextAlignment(.center)
+            if
+                let plannedDeparture = entry.plannedDeparture,
+                !entry.isCancelled
+            {
+                Text(plannedDeparture, style: .time)
+            } else {
+                Text("⚠️")
+            }
         }
     }
 }
@@ -74,7 +125,17 @@ struct NextDepartureWatchWidget: Widget {
 
 struct NextDepartureWatchWidget_Previews: PreviewProvider {
     static var previews: some View {
-        NextDepartureWatchWidgetEntryView(entry: .init(direction: .inbound, plannedDeparture: Date(), delay: 5, isCancelled: true, dummy: "preview"))
-            .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
+        NextDepartureWatchWidgetEntryView(
+            entry: .init(
+                direction: .outbound,
+                plannedDeparture: nil,
+                startStationName: "origin",
+                destinationStationName: "destination",
+                delay: nil,
+                isCancelled: false
+            )
+
+        )
+        .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }

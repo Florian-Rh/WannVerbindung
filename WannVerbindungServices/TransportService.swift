@@ -37,6 +37,7 @@ public class TransportService {
             withQueryItems: [
                 .init(name: "from", value: "\(from)"),
                 .init(name: "to", value: "\(to)"),
+                .init(name: "departure", value: "now"),
                 .init(name: "transfers", value: "0"),
                 .init(name: "results", value: "3"),
             ]
