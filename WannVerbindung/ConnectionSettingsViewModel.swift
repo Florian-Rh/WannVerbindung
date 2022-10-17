@@ -10,8 +10,22 @@ import WannVerbindungServices
 import WidgetKit
 
 @MainActor internal class ConnectionSettingsViewModel: ObservableObject {
-    @Published internal var homeStation: String
-    @Published internal var workStation: String
+    internal enum StopType {
+        case home
+        case destination
+    }
+
+    @Published internal var homeStation: String {
+        didSet {
+            self.seachStop(ofType: .home)
+        }
+    }
+
+    @Published internal var workStation: String {
+        didSet {
+            self.seachStop(ofType: .destination)
+        }
+    }
 
     @Published internal var outboundStart: Date = .distantPast
     @Published internal var outboundEnd: Date = .distantPast
@@ -23,14 +37,8 @@ import WidgetKit
 
     internal let transportService: TransportService = TransportService()
 
-    // TODO: computed properties for now, the station codes should be set using a response from `getStops`
-    private var homeStationCode: Int {
-        .init(self.homeStation)!
-    }
-
-    private var workStationCode: Int {
-        .init(self.workStation)!
-    }
+    private var homeStationCode: Int?
+    private var workStationCode: Int?
 
     internal init() {
         let userDefautsSuite = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")
@@ -51,12 +59,74 @@ import WidgetKit
         // TODO: add some kind of success notification
     }
 
-    internal func searchConnections() {
-        let homeStationCode = Int(homeStation)!
-        let workStationCode = Int(workStation)!
+    internal func seachStop(ofType type: StopType) {
+        let stopQuery: String
+
+        // TODO: clear up naming (work / destination is inaccurate)
+        switch type {
+            case .home:
+                stopQuery = self.homeStation
+            case .destination:
+                stopQuery = workStation
+        }
+
         Task {
             do {
-                let journey = try await transportService.getJourneys(from: homeStationCode, to: workStationCode)
+                let stop = try await transportService.getStops(forQuery: stopQuery).first!
+
+                switch type {
+                    case .home:
+                        self.homeStationCode = Int(stop.id)
+                        self.homeStation = stop.name
+                    case .destination:
+                        self.workStationCode = Int(stop.id)
+                        self.workStation = stop.name
+                }
+            } catch let error {
+                if let apiError = error as? ApiError {
+                    self.alertMessage = apiError.localizedDescription
+                } else {
+                    self.alertMessage = error.localizedDescription
+                }
+
+                self.isShowingAlert = true
+            }
+        }
+    }
+
+    internal func seachStop() {
+        Task {
+            do {
+                let stop = try await transportService.getStops(forQuery: self.homeStation)
+            } catch let error {
+                if let apiError = error as? ApiError {
+                    self.alertMessage = apiError.localizedDescription
+                } else {
+                    self.alertMessage = error.localizedDescription
+                }
+
+                self.isShowingAlert = true
+            }
+        }
+    }
+
+    internal func searchConnections() {
+        Task {
+            do {
+                guard
+                    let homeStationCode = self.homeStationCode,
+                    let workStationCode = self.workStationCode
+                else {
+                    self.alertMessage = "Destination or stop invalid"
+                    self.isShowingAlert = true
+
+                    return
+                }
+
+                let journey = try await transportService.getJourneys(
+                    from: homeStationCode,
+                    to: workStationCode
+                )
             } catch let error {
                 if let apiError = error as? ApiError {
                     self.alertMessage = apiError.localizedDescription

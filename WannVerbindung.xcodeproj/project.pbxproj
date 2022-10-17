@@ -45,6 +45,8 @@
 		BE7727C128FADDDF003F89AE /* WatchConnectivitySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727C028FADDDF003F89AE /* WatchConnectivitySession.swift */; };
 		BE7727C328FADF04003F89AE /* ConnectionSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727C228FADF04003F89AE /* ConnectionSettingsViewModel.swift */; };
 		BE7727C528FD5123003F89AE /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727C428FD5123003F89AE /* ApiError.swift */; };
+		BE7727C628FDE682003F89AE /* WannVerbindungServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5A739528F9C19500F11CF7 /* WannVerbindungServices.framework */; };
+		BE7727C728FDE682003F89AE /* WannVerbindungServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE5A739528F9C19500F11CF7 /* WannVerbindungServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,13 @@
 			remoteInfo = WannVerbindungServices;
 		};
 		BE7727B028F9CAED003F89AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE206A0C28F96D8500568190 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE5A739428F9C19500F11CF7;
+			remoteInfo = WannVerbindungServices;
+		};
+		BE7727C828FDE682003F89AE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BE206A0C28F96D8500568190 /* Project object */;
 			proxyType = 1;
@@ -151,6 +160,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE7727CA28FDE682003F89AE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BE7727C728FDE682003F89AE /* WannVerbindungServices.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -200,6 +220,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7727C628FDE682003F89AE /* WannVerbindungServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,12 +425,14 @@
 				BE206A1228F96D8500568190 /* Resources */,
 				BE206A3728F96D8700568190 /* Embed Watch Content */,
 				BE5A733428F99DC700F11CF7 /* Embed Foundation Extensions */,
+				BE7727CA28FDE682003F89AE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				BE206A2728F96D8600568190 /* PBXTargetDependency */,
 				BE5A734828F9A10000F11CF7 /* PBXTargetDependency */,
+				BE7727C928FDE682003F89AE /* PBXTargetDependency */,
 			);
 			name = WannVerbindung;
 			productName = WannVerbindung;
@@ -668,6 +691,11 @@
 			isa = PBXTargetDependency;
 			target = BE5A739428F9C19500F11CF7 /* WannVerbindungServices */;
 			targetProxy = BE7727B028F9CAED003F89AE /* PBXContainerItemProxy */;
+		};
+		BE7727C928FDE682003F89AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE5A739428F9C19500F11CF7 /* WannVerbindungServices */;
+			targetProxy = BE7727C828FDE682003F89AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
