@@ -7,17 +7,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8B1520B1-F424-4DE1-B46B-5402FC31D51D"
+            uuid = "E1C1530C-EA26-4023-9C1B-EE8D133DF690"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NextDepartureWidget/NextDepartureWidget.swift"
+            filePath = "WannVerbindungServices/TransportService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "getTimeline(for:in:completion:)"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "getJourney(from:to:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E1C1530C-EA26-4023-9C1B-EE8D133DF690 - e77cb38cb08a5dd0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for WannVerbindungServices.TransportService.getJourney(from: Swift.Int, to: Swift.Int) async throws -&gt; WannVerbindungServices.Journey"
+                  moduleName = "WannVerbindungServices"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/florianrhein/Documents/privateProjects/WannVerbindung/WannVerbindungServices/TransportService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "E1C1530C-EA26-4023-9C1B-EE8D133DF690 - e77cb38cb08a5d9e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for WannVerbindungServices.TransportService.getJourney(from: Swift.Int, to: Swift.Int) async throws -&gt; WannVerbindungServices.Journey"
+                  moduleName = "WannVerbindungServices"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/florianrhein/Documents/privateProjects/WannVerbindung/WannVerbindungServices/TransportService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "E1C1530C-EA26-4023-9C1B-EE8D133DF690 - e23fa3e28cd58edd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for WannVerbindungServices.TransportService.getJourney(from: Swift.Int, to: Swift.Int) async throws -&gt; WannVerbindungServices.JourneySearchResult"
+                  moduleName = "WannVerbindungServices"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/florianrhein/Documents/privateProjects/WannVerbindung/WannVerbindungServices/TransportService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "196">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -23,7 +23,7 @@ struct Provider: IntentTimelineProvider {
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         let homestation = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")?.string(forKey: "homeStation") ?? "unset"
-
+        
         let timeline = Timeline(
             entries: [
                 NextDepartureTimelineEntry(

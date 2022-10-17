@@ -8,25 +8,32 @@
 import Foundation
 
 public class TransportService {
+    public enum HttpError: Error {
+        case invalidResponse(statusCode: Int)
+    }
+
     private static let host: String = "https://v5.db.transport.rest"
 
     private static func getUrlRequest(
         forEndpoint endpoint: String,
-        withQueryItems queryItems: [URLQueryItem] = []
+        withQueryItems queryItems: [URLQueryItem]
     ) -> URLRequest {
         var urlComponents = URLComponents(string: "\(Self.host)/\(endpoint)")!
-        if !queryItems.isEmpty {
-            urlComponents.queryItems = queryItems
-        }
+        urlComponents.queryItems = queryItems
 
-        return .init(url: urlComponents.url!)
+        return URLRequest(url: urlComponents.url!)
     }
 
-    public init() {}
+    private var jsonDecoder: JSONDecoder
 
-    public func getJourney(from: Int, to: Int) async throws -> Journey {
+    public init() {
+        self.jsonDecoder = JSONDecoder()
+        self.jsonDecoder.dateDecodingStrategy = .iso8601
+    }
+
+    public func getJourney(from: Int, to: Int) async throws -> JourneySearchResult {
         let urlRequest = Self.getUrlRequest(
-            forEndpoint: "journey",
+            forEndpoint: "journeys",
             withQueryItems: [
                 .init(name: "from", value: "\(from)"),
                 .init(name: "to", value: "\(to)"),
@@ -35,10 +42,10 @@ public class TransportService {
             ]
         )
 
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        let journey = try JSONDecoder().decode(Journey.self, from: data)
+        let data = try await self.handleUrlRequest(urlRequest)
+        let journeySearchResult = try self.jsonDecoder.decode(JourneySearchResult.self, from: data)
 
-        return journey
+        return journeySearchResult
     }
 
     public func getStops(forQuery query: String) async throws -> [Stop] {
@@ -55,9 +62,21 @@ public class TransportService {
             ]
         )
 
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        let data = try await self.handleUrlRequest(urlRequest)
         let stops = try JSONDecoder().decode([Stop].self, from: data)
 
         return stops
+    }
+
+    private func handleUrlRequest(_ urlRequest: URLRequest) async throws -> Data {
+        let (data, urlResponse) = try await URLSession.shared.data(for: urlRequest)
+
+        if let httpResponse = urlResponse as? HTTPURLResponse {
+            if httpResponse.statusCode != 200 {
+                throw HttpError.invalidResponse(statusCode: httpResponse.statusCode)
+            }
+        }
+
+        return data
     }
 }

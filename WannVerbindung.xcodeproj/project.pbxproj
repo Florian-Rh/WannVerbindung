@@ -13,7 +13,7 @@
 		BE206A1F28F96D8600568190 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE206A1E28F96D8600568190 /* Preview Assets.xcassets */; };
 		BE206A2528F96D8600568190 /* WannVerbindung Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BE206A2428F96D8600568190 /* WannVerbindung Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BE206A2A28F96D8600568190 /* WannVerbindungApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE206A2928F96D8600568190 /* WannVerbindungApp.swift */; };
-		BE206A2C28F96D8600568190 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE206A2B28F96D8600568190 /* ContentView.swift */; };
+		BE206A2C28F96D8600568190 /* ConnectionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE206A2B28F96D8600568190 /* ConnectionSettingsView.swift */; };
 		BE206A2E28F96D8700568190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE206A2D28F96D8700568190 /* Assets.xcassets */; };
 		BE206A3128F96D8700568190 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE206A3028F96D8700568190 /* Preview Assets.xcassets */; };
 		BE5A733A28F9A0FF00F11CF7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5A72F028F97A6200F11CF7 /* WidgetKit.framework */; };
@@ -42,6 +42,8 @@
 		BE7727B428F9D08E003F89AE /* ConnectionSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727B328F9D08E003F89AE /* ConnectionSettingsViewModel.swift */; };
 		BE7727B628FAB921003F89AE /* NextDepartureTimelineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727B528FAB921003F89AE /* NextDepartureTimelineEntry.swift */; };
 		BE7727B828FAB974003F89AE /* TravelDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727B728FAB974003F89AE /* TravelDirection.swift */; };
+		BE7727C128FADDDF003F89AE /* WatchConnectivitySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727C028FADDDF003F89AE /* WatchConnectivitySession.swift */; };
+		BE7727C328FADF04003F89AE /* ConnectionSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727C228FADF04003F89AE /* ConnectionSettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,7 +160,7 @@
 		BE206A1E28F96D8600568190 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BE206A2428F96D8600568190 /* WannVerbindung Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WannVerbindung Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE206A2928F96D8600568190 /* WannVerbindungApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WannVerbindungApp.swift; sourceTree = "<group>"; };
-		BE206A2B28F96D8600568190 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BE206A2B28F96D8600568190 /* ConnectionSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSettingsView.swift; sourceTree = "<group>"; };
 		BE206A2D28F96D8700568190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE206A3028F96D8700568190 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BE5A72F028F97A6200F11CF7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -186,6 +188,9 @@
 		BE7727B328F9D08E003F89AE /* ConnectionSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSettingsViewModel.swift; sourceTree = "<group>"; };
 		BE7727B528FAB921003F89AE /* NextDepartureTimelineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextDepartureTimelineEntry.swift; sourceTree = "<group>"; };
 		BE7727B728FAB974003F89AE /* TravelDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDirection.swift; sourceTree = "<group>"; };
+		BE7727BE28FAD6EB003F89AE /* WannVerbindung-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WannVerbindung-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BE7727C028FADDDF003F89AE /* WatchConnectivitySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivitySession.swift; sourceTree = "<group>"; };
+		BE7727C228FADF04003F89AE /* ConnectionSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,9 +289,11 @@
 		BE206A2828F96D8600568190 /* WannVerbindung Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				BE7727BE28FAD6EB003F89AE /* WannVerbindung-Watch-App-Info.plist */,
 				BE5A739F28F9C3D500F11CF7 /* WannVerbindung Watch App.entitlements */,
 				BE206A2928F96D8600568190 /* WannVerbindungApp.swift */,
-				BE206A2B28F96D8600568190 /* ContentView.swift */,
+				BE206A2B28F96D8600568190 /* ConnectionSettingsView.swift */,
+				BE7727C228FADF04003F89AE /* ConnectionSettingsViewModel.swift */,
 				BE206A2D28F96D8700568190 /* Assets.xcassets */,
 				BE206A2F28F96D8700568190 /* Preview Content */,
 			);
@@ -346,6 +353,7 @@
 		BE5A739628F9C19500F11CF7 /* WannVerbindungServices */ = {
 			isa = PBXGroup;
 			children = (
+				BE7727BF28FADDAE003F89AE /* WatchConnectivitySession */,
 				BE7727B928FABF88003F89AE /* WidgetKit */,
 				BE5A738428F9BFE300F11CF7 /* Models */,
 				BE5A739728F9C19500F11CF7 /* WannVerbindungServices.h */,
@@ -360,6 +368,14 @@
 				BE7727B528FAB921003F89AE /* NextDepartureTimelineEntry.swift */,
 			);
 			path = WidgetKit;
+			sourceTree = "<group>";
+		};
+		BE7727BF28FADDAE003F89AE /* WatchConnectivitySession */ = {
+			isa = PBXGroup;
+			children = (
+				BE7727C028FADDDF003F89AE /* WatchConnectivitySession.swift */,
+			);
+			path = WatchConnectivitySession;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -583,8 +599,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE5A735C28F9A80B00F11CF7 /* NextDepartureWatchWidget.intentdefinition in Sources */,
-				BE206A2C28F96D8600568190 /* ContentView.swift in Sources */,
+				BE206A2C28F96D8600568190 /* ConnectionSettingsView.swift in Sources */,
 				BE206A2A28F96D8600568190 /* WannVerbindungApp.swift in Sources */,
+				BE7727C328FADF04003F89AE /* ConnectionSettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +633,7 @@
 				BE5A739C28F9C1A000F11CF7 /* TransportService.swift in Sources */,
 				BE7727B628FAB921003F89AE /* NextDepartureTimelineEntry.swift in Sources */,
 				BE5A739E28F9C35500F11CF7 /* Stop.swift in Sources */,
+				BE7727C128FADDDF003F89AE /* WatchConnectivitySession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,6 +790,7 @@
 				DEVELOPMENT_TEAM = 63NZMDFF7Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WannVerbindung-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WannVerbindung;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.rhein.WannVerbindung;
@@ -805,6 +824,7 @@
 				DEVELOPMENT_TEAM = 63NZMDFF7Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WannVerbindung-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WannVerbindung;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.rhein.WannVerbindung;

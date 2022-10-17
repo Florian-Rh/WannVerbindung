@@ -1,11 +1,12 @@
 //
 //  ContentView.swift
-//  WannVerbindung
+//  WannVerbindung Watch App
 //
 //  Created by Florian Rhein on 14.10.22.
 //
 
 import SwiftUI
+import WannVerbindungServices
 
 struct ConnectionSettingsView: View {
     @ObservedObject private var viewModel: ConnectionSettingsViewModel = ConnectionSettingsViewModel()
@@ -20,19 +21,17 @@ struct ConnectionSettingsView: View {
                 }
 
                 Section(header: Text("Hinfahrt")) {
-                    DatePicker(selection: self.$viewModel.inboundStart, displayedComponents: [.hourAndMinute], label: { Text("Von") })
-                    DatePicker(selection: self.$viewModel.inboundEnd, displayedComponents: [.hourAndMinute], label: { Text("Bis") })
+//                    DatePicker(selection: self.$viewModel.inboundStart, displayedComponents: [.hourAndMinute], label: { Text("Von") })
+//                    DatePicker(selection: self.$viewModel.inboundEnd, displayedComponents: [.hourAndMinute], label: { Text("Bis") })
                 }
 
                 Section(header: Text("Rückfahrt")) {
-                    DatePicker(selection: self.$viewModel.outboundStart, displayedComponents: [.hourAndMinute], label: { Text("Von") })
-                    DatePicker(selection: self.$viewModel.outboundEnd, displayedComponents: [.hourAndMinute], label: { Text("Bis") })
+//                    DatePicker(selection: self.$viewModel.outboundStart, displayedComponents: [.hourAndMinute], label: { Text("Von") })
+//                    DatePicker(selection: self.$viewModel.outboundEnd, displayedComponents: [.hourAndMinute], label: { Text("Bis") })
                 }
 
                 Section {
-                    Button("Verbindungen anzeigen") {
-                        self.viewModel.searchConnections()
-                    }
+                    Button("Verbindungen anzeigen") {}
                 }
             }
             .cornerRadius(15)
@@ -45,7 +44,7 @@ struct ConnectionSettingsView: View {
     }
 }
 
-struct ConnectionSettingsView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ConnectionSettingsView()
     }

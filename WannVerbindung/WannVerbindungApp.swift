@@ -15,4 +15,8 @@ struct WannVerbindungApp: App {
             ConnectionSettingsView()
         }
     }
+
+    init() {
+
+    }
 }
