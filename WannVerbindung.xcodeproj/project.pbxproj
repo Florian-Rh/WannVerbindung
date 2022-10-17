@@ -44,6 +44,7 @@
 		BE7727B828FAB974003F89AE /* TravelDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727B728FAB974003F89AE /* TravelDirection.swift */; };
 		BE7727C128FADDDF003F89AE /* WatchConnectivitySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727C028FADDDF003F89AE /* WatchConnectivitySession.swift */; };
 		BE7727C328FADF04003F89AE /* ConnectionSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727C228FADF04003F89AE /* ConnectionSettingsViewModel.swift */; };
+		BE7727C528FD5123003F89AE /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7727C428FD5123003F89AE /* ApiError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,7 @@
 		BE7727BE28FAD6EB003F89AE /* WannVerbindung-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WannVerbindung-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BE7727C028FADDDF003F89AE /* WatchConnectivitySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivitySession.swift; sourceTree = "<group>"; };
 		BE7727C228FADF04003F89AE /* ConnectionSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSettingsViewModel.swift; sourceTree = "<group>"; };
+		BE7727C428FD5123003F89AE /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +348,7 @@
 				BE5A737C28F9B19C00F11CF7 /* Journey.swift */,
 				BE5A738228F9B6D900F11CF7 /* Stop.swift */,
 				BE7727B728FAB974003F89AE /* TravelDirection.swift */,
+				BE7727C428FD5123003F89AE /* ApiError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7727C528FD5123003F89AE /* ApiError.swift in Sources */,
 				BE7727B828FAB974003F89AE /* TravelDirection.swift in Sources */,
 				BE5A739D28F9C35200F11CF7 /* Journey.swift in Sources */,
 				BE5A739C28F9C1A000F11CF7 /* TransportService.swift in Sources */,

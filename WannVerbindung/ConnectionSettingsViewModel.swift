@@ -18,6 +18,9 @@ import WidgetKit
     @Published internal var inboundStart: Date = .distantPast
     @Published internal var inboundEnd: Date = .distantPast
 
+    @Published internal var isShowingAlert: Bool = false
+    internal var alertMessage: String = ""
+
     internal let transportService: TransportService = TransportService()
 
     // TODO: computed properties for now, the station codes should be set using a response from `getStops`
@@ -52,7 +55,17 @@ import WidgetKit
         let homeStationCode = Int(homeStation)!
         let workStationCode = Int(workStation)!
         Task {
-            let journey = try await transportService.getJourneys(from: homeStationCode, to: workStationCode)
+            do {
+                let journey = try await transportService.getJourneys(from: homeStationCode, to: workStationCode)
+            } catch let error {
+                if let apiError = error as? ApiError {
+                    self.alertMessage = apiError.localizedDescription
+                } else {
+                    self.alertMessage = error.localizedDescription
+                }
+
+                self.isShowingAlert = true
+            }
 
             // TODO: trigger navigation to NextConnectionsView (TBA)
         }

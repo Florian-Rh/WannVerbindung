@@ -42,6 +42,12 @@ struct ConnectionSettingsView: View {
                 self.viewModel.saveConfiguration()
             }
         }
+        .alert(isPresented: self.$viewModel.isShowingAlert) {
+            Alert(
+                title: Text("Ein Fehler ist aufgetreten"),
+                message: Text(self.viewModel.alertMessage)
+            )
+        }
     }
 }
 

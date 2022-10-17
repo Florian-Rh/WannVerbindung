@@ -73,7 +73,11 @@ public class TransportService {
 
         if let httpResponse = urlResponse as? HTTPURLResponse {
             if httpResponse.statusCode != 200 {
-                throw HttpError.invalidResponse(statusCode: httpResponse.statusCode)
+                guard let apiError = try? JSONDecoder().decode(ApiError.self, from: data) else {
+                    throw HttpError.invalidResponse(statusCode: httpResponse.statusCode)
+                }
+
+                throw apiError
             }
         }
 
