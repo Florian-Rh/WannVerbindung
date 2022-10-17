@@ -100,11 +100,10 @@ struct NextDepartureIPhoneWidgetEntryView : View {
                 let plannedDeparture = entry.plannedDeparture,
                 !entry.isCancelled
             {
-                Text("Next departure from \(entry.startStationName) to \(entry.destinationStationName):")
-                    .font(.footnote)
-                    .multilineTextAlignment(.leading)
-                Text(plannedDeparture, style: .time)
-
+                Text("Next departure to \(entry.destinationStationName) in:")
+                    .padding(.leading)
+                Text(plannedDeparture, style: .relative)
+                    .padding(.leading)
             } else {
                 Text("⚠️")
             }
