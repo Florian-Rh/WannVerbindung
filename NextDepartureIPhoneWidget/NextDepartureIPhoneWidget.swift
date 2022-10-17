@@ -96,13 +96,15 @@ struct NextDepartureIPhoneWidgetEntryView : View {
 
     var body: some View {
         VStack {
-            Text("Next Departure from \(entry.startStationName) to \(entry.destinationStationName):")
-                .multilineTextAlignment(.center)
             if
                 let plannedDeparture = entry.plannedDeparture,
                 !entry.isCancelled
             {
+                Text("Next departure from \(entry.startStationName) to \(entry.destinationStationName):")
+                    .font(.footnote)
+                    .multilineTextAlignment(.leading)
                 Text(plannedDeparture, style: .time)
+
             } else {
                 Text("⚠️")
             }
@@ -128,7 +130,7 @@ struct NextDepartureIPhoneWidget_Previews: PreviewProvider {
         NextDepartureIPhoneWidgetEntryView(
             entry: .init(
                 direction: .outbound,
-                plannedDeparture: nil,
+                plannedDeparture: Date(),
                 startStationName: "origin",
                 destinationStationName: "destination",
                 delay: nil,
