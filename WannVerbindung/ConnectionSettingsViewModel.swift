@@ -94,22 +94,6 @@ import WidgetKit
         }
     }
 
-    internal func seachStop() {
-        Task {
-            do {
-                let stop = try await transportService.getStops(forQuery: self.homeStation)
-            } catch let error {
-                if let apiError = error as? ApiError {
-                    self.alertMessage = apiError.localizedDescription
-                } else {
-                    self.alertMessage = error.localizedDescription
-                }
-
-                self.isShowingAlert = true
-            }
-        }
-    }
-
     internal func searchConnections() {
         Task {
             do {
