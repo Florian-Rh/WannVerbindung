@@ -16,7 +16,5 @@ struct WannVerbindungApp: App {
         }
     }
 
-    init() {
-
-    }
+    init() {}
 }
