@@ -15,8 +15,12 @@ struct ConnectionSettingsView: View {
             Text("Wann Verbindung?!").font(.title)
             Form {
                 Section(header: Text("Verbindung")) {
-                    TextField("Zuhause", text: self.$viewModel.homeStation)
-                    TextField("Zielort", text: self.$viewModel.workStation)
+                    TextField("Zuhause", text: self.$viewModel.homeStation, onCommit: {
+                        self.viewModel.seachStop(ofType: .home)
+                    })
+                    TextField("Zielort", text: self.$viewModel.workStation, onCommit: {
+                        self.viewModel.seachStop(ofType: .destination)
+                    })
                 }
 
                 Section(header: Text("Hinfahrt")) {

@@ -15,17 +15,9 @@ import WidgetKit
         case destination
     }
 
-    @Published internal var homeStation: String {
-        didSet {
-            self.seachStop(ofType: .home)
-        }
-    }
+    @Published internal var homeStation: String
 
-    @Published internal var workStation: String {
-        didSet {
-            self.seachStop(ofType: .destination)
-        }
-    }
+    @Published internal var workStation: String
 
     @Published internal var outboundStart: Date = .distantPast
     @Published internal var outboundEnd: Date = .distantPast
@@ -67,7 +59,7 @@ import WidgetKit
             case .home:
                 stopQuery = self.homeStation
             case .destination:
-                stopQuery = workStation
+                stopQuery = self.workStation
         }
 
         Task {
@@ -111,6 +103,8 @@ import WidgetKit
                     from: homeStationCode,
                     to: workStationCode
                 )
+                print(journey)
+                // TODO: trigger navigation to NextConnectionsView (TBA)
             } catch let error {
                 if let apiError = error as? ApiError {
                     self.alertMessage = apiError.localizedDescription
@@ -121,7 +115,6 @@ import WidgetKit
                 self.isShowingAlert = true
             }
 
-            // TODO: trigger navigation to NextConnectionsView (TBA)
         }
     }
 }
