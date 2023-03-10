@@ -51,7 +51,7 @@ public class TransportService {
 
     public func getStops(forQuery query: String) async throws -> [Stop] {
         let urlRequest = Self.getUrlRequest(
-            forEndpoint: "localtions",
+            forEndpoint: "locations",
             withQueryItems: [
                 .init(name: "query", value: query),
                 .init(name: "fuzzy", value: "false"),
@@ -71,6 +71,7 @@ public class TransportService {
 
     private func handleUrlRequest(_ urlRequest: URLRequest) async throws -> Data {
         let (data, urlResponse) = try await URLSession.shared.data(for: urlRequest)
+        print(String(data: data, encoding: .utf8))
 
         if let httpResponse = urlResponse as? HTTPURLResponse {
             if httpResponse.statusCode != 200 {

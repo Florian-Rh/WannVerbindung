@@ -55,7 +55,7 @@ struct Provider: IntentTimelineProvider {
                     entries: [
                         NextDepartureTimelineEntry(
                             direction: .outbound,
-                            plannedDeparture: nextJourneyLeg.plannedDeparture,
+                            plannedDeparture: nextJourneyLeg.departure,
                             startStationName: nextJourneyLeg.origin.name,
                             destinationStationName: nextJourneyLeg.destination.name,
                             delay: nextJourneyLeg.departureDelay,
@@ -96,13 +96,11 @@ struct NextDepartureIPhoneWidgetEntryView : View {
 
     var body: some View {
         VStack {
-            if
-                let plannedDeparture = entry.plannedDeparture,
-                !entry.isCancelled
-            {
-                Text("Next departure to \(entry.destinationStationName) in:")
+            if let plannedDeparture = entry.plannedDeparture {
+                Text("Next departure from \(entry.startStationName) to \(entry.destinationStationName):")
+                    .font(.footnote)
                     .padding(.leading)
-                Text(plannedDeparture, style: .relative)
+                Text(plannedDeparture, style: .time)
                     .padding(.leading)
             } else {
                 Text("⚠️")
@@ -130,7 +128,7 @@ struct NextDepartureIPhoneWidget_Previews: PreviewProvider {
             entry: .init(
                 direction: .outbound,
                 plannedDeparture: Date(),
-                startStationName: "origin",
+                startStationName: "Mainz Hbf",
                 destinationStationName: "destination",
                 delay: nil,
                 isCancelled: false

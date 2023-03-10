@@ -23,7 +23,7 @@ public struct Journey: Codable {
         }
         public let origin: Location
         public let destination: Location
-        public let departure: Date
+        public let departure: Date?
         public let plannedDeparture: Date
         public let departureDelay: Int?
         public let arrival: Date
