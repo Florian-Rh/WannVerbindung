@@ -97,7 +97,7 @@ struct NextDepartureWatchWidgetEntryView : View {
     var body: some View {
         VStack {
             Text("Next Departure from \(entry.startStationName) to \(entry.destinationStationName):")
-                .multilineTextAlignment(.center)
+                .multilineTextAlignment(.leading)
             if
                 let plannedDeparture = entry.plannedDeparture,
                 !entry.isCancelled

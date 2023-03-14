@@ -9,36 +9,23 @@ import SwiftUI
 import WannVerbindungServices
 
 struct ConnectionSettingsView: View {
-    @ObservedObject private var viewModel: ConnectionSettingsViewModel = ConnectionSettingsViewModel()
+    @ObservedObject fileprivate var viewModel: ConnectionSettingsViewModel = ConnectionSettingsViewModel()
 
     var body: some View {
         VStack {
-            Text("Wann Verbindung?!").font(.title)
-            Form {
-                Section(header: Text("Verbindung")) {
-                    TextField("Zuhause", text: self.$viewModel.homeStation)
-                    TextField("Zielort", text: self.$viewModel.workStation)
-                }
+            if let configuration = viewModel.configuration {
+                Text(
+                    """
+                    Home station:
+                    \(configuration.origin.name)
+                    Destination station:
+                    \(configuration.destination.name)
 
-                Section(header: Text("Hinfahrt")) {
-//                    DatePicker(selection: self.$viewModel.inboundStart, displayedComponents: [.hourAndMinute], label: { Text("Von") })
-//                    DatePicker(selection: self.$viewModel.inboundEnd, displayedComponents: [.hourAndMinute], label: { Text("Bis") })
-                }
-
-                Section(header: Text("Rückfahrt")) {
-//                    DatePicker(selection: self.$viewModel.outboundStart, displayedComponents: [.hourAndMinute], label: { Text("Von") })
-//                    DatePicker(selection: self.$viewModel.outboundEnd, displayedComponents: [.hourAndMinute], label: { Text("Bis") })
-                }
-
-                Section {
-                    Button("Verbindungen anzeigen") {}
-                }
-            }
-            .cornerRadius(15)
-            .padding()
-
-            Button("Einstellungen speichern") {
-                self.viewModel.saveConfiguration()
+                    To change the configuration, open the iPhone app
+                    """
+                ).frame(maxWidth: .infinity, alignment: .leading)
+            } else {
+                Text("Configure your connection in the iPhone app")
             }
         }
     }
@@ -46,6 +33,15 @@ struct ConnectionSettingsView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ConnectionSettingsView()
+        let viewModel = ConnectionSettingsViewModel()
+        viewModel.configuration = .init(
+            origin: .init(id: "", name: "home"),
+            destination: .init(id: "", name: "destination")
+        )
+
+        var view = ConnectionSettingsView()
+        view.viewModel = viewModel
+
+        return view
     }
 }

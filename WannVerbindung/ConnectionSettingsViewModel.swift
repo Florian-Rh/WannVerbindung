@@ -29,8 +29,9 @@ import WidgetKit
 
     internal let transportService: TransportService = TransportService()
 
-    private var homeStationCode: Int?
-    private var workStationCode: Int?
+    private let sharedConfigurationProvider: SharedConfigurationProvider = .init()
+    private var originStationCode: Int?
+    private var destinationStationCode: Int?
 
     internal init() {
         let userDefautsSuite = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")
@@ -40,12 +41,16 @@ import WidgetKit
 
     internal func saveConfiguration() {
         let userDefaultSuite = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")
-        userDefaultSuite?.set(homeStationCode, forKey: "homeStationCode")
-        userDefaultSuite?.set(workStationCode, forKey: "workStationCode")
-        userDefaultSuite?.set(outboundStart, forKey: "outboundStart")
-        userDefaultSuite?.set(outboundEnd, forKey: "outboundEnd")
-        userDefaultSuite?.set(inboundStart, forKey: "inboundStart")
-        userDefaultSuite?.set(inboundEnd, forKey: "inboundEnd")
+
+        self.sharedConfigurationProvider.updateConfiguration(
+            .init(
+                origin: .init(id: "\(self.originStationCode!)", name: self.homeStation), // TODO: guard
+                destination: .init(id: "\(self.destinationStationCode!)", name: self.workStation)
+            )
+        )
+
+        userDefaultSuite?.set(originStationCode, forKey: "homeStationCode")
+        userDefaultSuite?.set(destinationStationCode, forKey: "workStationCode")
         WidgetCenter.shared.reloadTimelines(ofKind: "NextDepartureIPhoneWidget")
 
         // TODO: add some kind of success notification
@@ -68,10 +73,10 @@ import WidgetKit
 
                 switch type {
                     case .home:
-                        self.homeStationCode = Int(stop.id)
+                        self.originStationCode = Int(stop.id)
                         self.homeStation = stop.name
                     case .destination:
-                        self.workStationCode = Int(stop.id)
+                        self.destinationStationCode = Int(stop.id)
                         self.workStation = stop.name
                 }
             } catch let error {
@@ -90,8 +95,8 @@ import WidgetKit
         Task {
             do {
                 guard
-                    let homeStationCode = self.homeStationCode,
-                    let workStationCode = self.workStationCode
+                    let homeStationCode = self.originStationCode,
+                    let workStationCode = self.destinationStationCode
                 else {
                     self.alertMessage = "Destination or stop invalid"
                     self.isShowingAlert = true
