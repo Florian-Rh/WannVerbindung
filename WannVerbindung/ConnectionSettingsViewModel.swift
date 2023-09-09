@@ -19,10 +19,11 @@ import WidgetKit
 
     @Published internal var workStation: String
 
-    @Published internal var outboundStart: Date = .distantPast
-    @Published internal var outboundEnd: Date = .distantPast
-    @Published internal var inboundStart: Date = .distantPast
-    @Published internal var inboundEnd: Date = .distantPast
+    // TODO: The time ranges for travels should be stored in the user defaults and retrieved from there
+    @Published internal var outboundStart: Date = Date(timeIntervalSince1970: 6.5 * 60 * 60)
+    @Published internal var outboundEnd: Date = Date(timeIntervalSince1970: 8 * 60 * 60)
+    @Published internal var inboundStart: Date = Date(timeIntervalSince1970: 16 * 60 * 60)
+    @Published internal var inboundEnd: Date = Date(timeIntervalSince1970: 17.5 * 60 * 60)
 
     @Published internal var isShowingAlert: Bool = false
     internal var alertMessage: String = ""
