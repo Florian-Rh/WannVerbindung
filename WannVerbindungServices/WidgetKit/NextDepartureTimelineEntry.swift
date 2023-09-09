@@ -34,5 +34,6 @@ public class NextDepartureTimelineEntry: TimelineEntry {
 
     // MARK: - TimelineEntry
 
-    public let date: Date = Date() // we cannot plan future timeline entries, so we always display them immediatly
+    // TODO: Currently, the timeline provider only supports scheduling the next departure, not the one after that
+    public let date: Date = Date()
 }
