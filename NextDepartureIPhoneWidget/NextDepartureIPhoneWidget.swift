@@ -10,98 +10,21 @@ import SwiftUI
 import Intents
 import WannVerbindungServices
 
-struct Provider: IntentTimelineProvider {
-    func placeholder(in context: Context) -> NextDepartureTimelineEntry {
-        .init(
-            direction: .outbound,
-            plannedDeparture: nil,
-            startStationName: "origin",
-            destinationStationName: "destination",
-            delay: nil,
-            isCancelled: false
-        )
-    }
-
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (NextDepartureTimelineEntry) -> ()) {
-        completion(
-            .init(
-                direction: .outbound,
-                plannedDeparture: nil,
-                startStationName: "origin",
-                destinationStationName: "destination",
-                delay: nil,
-                isCancelled: false
-            )
-        )
-    }
-
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let userDefaultsSuite = UserDefaults(suiteName: "group.rhein.me.wannVerbindung")!
-        let homestation = userDefaultsSuite.integer(forKey: "homeStationCode")
-        let workstation = userDefaultsSuite.integer(forKey: "workStationCode")
-        let timelineReloadpolicy = TimelineReloadPolicy.after(Calendar.current.date(byAdding: .minute, value: 1, to: Date())!)
-        Task {
-            let timeline: Timeline<NextDepartureTimelineEntry>
-            do {
-                let journeySearchResult = try await TransportService().getJourneys(from: homestation, to: workstation)
-                // TODO: currently only journey with one leg (no transfer) are supported
-                // A more fitting data model should be introduced
-                let nextJourneyLeg = journeySearchResult.journeys.first!.legs.first!
-
-                // TODO: currently only one timeline entry is created and refreshed after one minute.
-                // To save resources and to make the widget more reliable, more timeline entries for future
-                // connections should be added
-                timeline = Timeline(
-                    entries: [
-                        NextDepartureTimelineEntry(
-                            direction: .outbound,
-                            plannedDeparture: nextJourneyLeg.departure,
-                            startStationName: nextJourneyLeg.origin.name,
-                            destinationStationName: nextJourneyLeg.destination.name,
-                            delay: nextJourneyLeg.departureDelay,
-                            isCancelled: nextJourneyLeg.cancelled ?? false
-                        )
-                    ],
-                    policy: timelineReloadpolicy
-                )
-            } catch let error {
-                timeline = Timeline(
-                    entries: [
-                        NextDepartureTimelineEntry(
-                            direction: .outbound,
-                            plannedDeparture: nil,
-                            startStationName: "\(homestation)",
-                            destinationStationName: "\(workstation)",
-                            delay: nil,
-                            isCancelled: true
-                        )
-                    ],
-                    policy: timelineReloadpolicy
-                )
-            }
-
-            completion(timeline)
-        }
-    }
-
-    func recommendations() -> [IntentRecommendation<ConfigurationIntent>] {
-        return [
-            IntentRecommendation(intent: ConfigurationIntent(), description: "My Intent Widget")
-        ]
-    }
-}
-
 struct NextDepartureIPhoneWidgetEntryView : View {
     var entry: NextDepartureTimelineEntry
 
     var body: some View {
         VStack {
-            if let plannedDeparture = entry.plannedDeparture {
-                Text("Next departure from \(entry.startStationName) to \(entry.destinationStationName):")
-                    .font(.footnote)
-                    .padding(.leading)
-                Text(plannedDeparture, style: .time)
-                    .padding(.leading)
+            Text("Next Departure from \(entry.startStationName) to \(entry.destinationStationName):")
+                .multilineTextAlignment(.leading)
+
+            if let plannedDeparture = entry.plannedDeparture, !entry.isCancelled {
+                HStack {
+                    Text(plannedDeparture, style: .time)
+                    if let delay = entry.delay {
+                        Text("+ \(delay)").bold().foregroundColor(.red)
+                    }
+                }
             } else {
                 Text("⚠️")
             }
@@ -113,12 +36,14 @@ struct NextDepartureIPhoneWidget: Widget {
     let kind: String = "NextDepartureIPhoneWidget"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            NextDepartureIPhoneWidgetEntryView(entry: entry)
-        }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
-        .supportedFamilies([.accessoryRectangular, .accessoryInline])
+        IntentConfiguration<ConfigurationIntent, NextDepartureIPhoneWidgetEntryView>(
+            kind: kind,
+            intent: ConfigurationIntent.self,
+            provider: NextDepartureTimelineProvider<ConfigurationIntent>(),
+            content: (NextDepartureIPhoneWidgetEntryView.init)
+        )
+        .configurationDisplayName("Show next departure")
+        .description("This widget displays the next departure on your configured commute.")
     }
 }
 
@@ -127,10 +52,10 @@ struct NextDepartureIPhoneWidget_Previews: PreviewProvider {
         NextDepartureIPhoneWidgetEntryView(
             entry: .init(
                 direction: .outbound,
-                plannedDeparture: Date(),
-                startStationName: "Mainz Hbf",
-                destinationStationName: "destination",
-                delay: nil,
+                plannedDeparture: .now.addingTimeInterval(300),
+                startStationName: "Mainz",
+                destinationStationName: "Frankfurt",
+                delay: 5,
                 isCancelled: false
             )
         )
